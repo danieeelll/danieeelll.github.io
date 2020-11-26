@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey form</title>
+
+    <style>
+:root{
+    --my-light-gray:  hsl(0, 0%, 95%);
+    
+}
+
+body {
+    font-family:Calibri, sans-serif, 'Trebuchet MS';
+    font-size: large;
+    
+}
+
+header, form{
+    max-width: 600px;
+    background-color: lightgray;
+    box-shadow: 10px 10px 20px 3px  dimgray;
+    border: 1px solid black;
+    margin: 10px auto auto auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+h1, p {
+    margin:5px;
+    text-align: center;
+    background-color: var(--my-light-gray);
+    border: 1px solid dimgray;
+    border-radius: 5px;
+}
+
+.form-member {
+    background-color: var(--my-light-gray);
+    /*box-shadow: 10px 10px 20px 3px lightyellow inset;*/
+    border: 1px solid dimgray;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input, textarea, select {
+    font-size:85%;
+    background-color:lightyellow;
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.form-member fieldset{
+    background-color:lightyellow;
+    border-radius: 5px;
+}
+
+#name, #email, #number, #dropdown {
+    min-width: 250px;
+}
+
+#textarea {
+    font-size: inherit; 
+    /*margin: 5px auto auto auto;
+    */
+    display: flex;
+}
+
+input:required, #description {
+    border:1px inset darkorange;
+    border-radius: 5px;
+}
+
+input:active {
+    border: 2px solid rgb(0, 252, 0);
+}
+
+.form-member1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.choose-twice{
+    display: flex;
+ width: 45%;
+ flex-direction: column;
+ /*float: right;*/
+ /*height: 350px;*/
+
+}
+
+fieldset label{
+ display: flex;
+}
+
+fieldset legend {
+    font-size: inherit;
+}
+
+#submit {
+    background-color: orange;
+    font-weight: bold;
+    font-size: larger;
+    /*display: block;*/
+    width: 100%;
+    border-radius: 5px;
+}
+    </style>
+
+</head>
+<body>
+    <!--
+    <div id="nezavadzaj"><script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script></div>
+    -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" ></script>
+    
+    <header>
+        <h1 id="title">Survey form</h1>
+        <p id="description">Fields highlighted by with orange borders are required.</p>
+        
+    </header>   
+    <form id="survey-form" target="_self" method="get">
+        <div class="form-member">  
+            <label for="name" id="name-label">What's your name?</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name." required>
+        
+            <label for="email" id="email-label">Let us know your e-mail</label>
+            <input type="email" name="email" id="email" placeholder="Knock here your email in correct format" required>
+       
+            <label for="number" id="number-label">Enter count of your fingers</label>
+            <input type="number" name="number" id="number" min="1" max="10" pattern="[1-9]{1}" placeholder="If you have more, you must bite some!" required>
+        </div>
+        
+        <div class="form-member">
+        <label for="dropdown" id="dropdown-label">When did you lose your first finger?</label>
+            <select id="dropdown" name="dropdown" required>
+                <option value="1">I do not remember</option>
+                <option value="2">Early young age</option>
+                <option value="3">Feew years ago</option>
+                <option value="4" selected>Right now, ouuu!</option>
+            </select>
+        </div>
+        
+        <div class="form-member">
+        <span class="span-member1">Which finger is (or was) the most popular for you? <br>(Choose one option for each hand.)</span>
+            
+        <div class="form-member1">
+        <fieldset class="choose-twice">
+            <legend>Left hand:</legend>
+            <label for="radiobuttons-group-left-1st-option">left thumb
+            <input type="radio" name="radiobuttons-group-left" id="radiobuttons-group-left-1st-option" value="thumb"></label>
+            <label for="radiobuttons-group-left-2nd-option">left index finger
+            <input type="radio" name="radiobuttons-group-left" id="radiobuttons-group-left-2nd-option" value="index finger"></label>
+            <label for="radiobuttons-group-left-3rd-option">left middle finger
+            <input type="radio" name="radiobuttons-group-left" id="radiobuttons-group-left-3rd-option" value="middle finger"></label>
+            <label for="radiobuttons-group-left-4th-option">left ring finger
+            <input type="radio" name="radiobuttons-group-left" id="radiobuttons-group-left-4th-option" value="ring finger"></label>
+            <label for="radiobuttons-group-left-5th-option">left pinky
+            <input type="radio" name="radiobuttons-group-left" id="radiobuttons-group-left-5th-option" value="pinky"></label>
+        </fieldset>
+        <fieldset class="choose-twice">
+            <legend>Right hand:</legend>
+            <label for="radiobuttons-group-right-1st-option">right thumb
+            <input type="radio" name="radiobuttons-group-right" id="radiobuttons-group-right-1st-option" value="thumb"></label>
+            <label for="radiobuttons-group-right-2nd-option">right index finger
+            <input type="radio" name="radiobuttons-group-right" id="radiobuttons-group-right-2nd-option" value="index finger"></label>
+            <label for="radiobuttons-group-right-3rd-option">right middle finger
+            <input type="radio" name="radiobuttons-group-right" id="radiobuttons-group-right-3rd-option" value="middle finger"></label>
+            <label for="radiobuttons-group-right-4th-option">right ring finger
+            <input type="radio" name="radiobuttons-group-right" id="radiobuttons-group-right-4th-option" value="ring finger"></label>
+            <label for="radiobuttons-group-right-5th-option">right pinky
+            <input type="radio" name="radiobuttons-group-right" id="radiobuttons-group-right-5th-option" value="pinky"></label>
+        
+        </fieldset>
+        </div>
+        </div>
+
+        <div class="form-member">
+        <fieldset> 
+            <legend>Check the fingers that you still own:</legend>
+            <label for="checkbuttons-group-1st">left thumb
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-1st" value="value1">
+            </label>
+            <label for="checkbuttons-group-2nd">left index finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-2nd" value="value2">
+            </label>
+            <label for="checkbuttons-group-3rd">left middle finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-3rd" value="value3">
+            </label>
+        
+            <label for="checkbuttons-group-4th">left ring finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-4th" value="value4">
+            </label>
+            <label for="checkbuttons-group-5th">left pinky
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-5th" value="value5">
+            </label>
+            <label for="checkbuttons-group-6th">right thumb
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-6th" value="value6">
+            </label>
+            <label for="checkbuttons-group-7th">right index finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-7th" value="value6">
+            </label>
+            <label for="checkbuttons-group-8th">right middle finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-8th" value="value6">
+            </label>
+            <label for="checkbuttons-group-9th">right ring finger
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-9th" value="value6">
+            </label>
+            <label for="checkbuttons-group-10th">right pinky
+                <input type="checkbox" name="checkbuttons-group" id="checkbuttons-group-10th" value="value6">
+            </label>
+        </fieldset>
+        </div>
+
+        <div class="form-member">
+        <label for="textarea">
+            If you have fingers on the one hand too tight, 
+            but the opposite hand fingers are very lonely, 
+            you may write here. Maybe some of our members 
+            would like to share something with you. 
+        </label>
+        <textarea name="textarea" id="textarea" cols="56" rows="10" placeholder="your message" maxlength="999"></textarea>
+        </div>
+
+        <div class="form-member">
+        <label for="date">Actual Date</label>
+        <input type="date" onload="getDate()" id="date" name="date" value="getDate()">
+        </div>  
+
+        <button type="submit" id="submit" value="Submit">welcome to the association of careless users of sharpened sliding mitre saws</button>
+       
+    </form>
+
+    <script type="text/javascript">
+        function getDate(){
+            let today = new Date();
+            document.getElementById("date").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+        }
+    </script>
+
+    </body>
+</html>
