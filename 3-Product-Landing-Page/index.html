@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product landing page - mitre saw</title>
+    <script src="https://kit.fontawesome.com/c9e54c7759.js" crossorigin="anonymous"></script>
+    <style>
+        :root{
+            /* set variables*/
+            --sharped-goldenrod:  rgb(197, 141, 0);
+            --nice-lightblue: #0F5897;
+            --dark-gray: hsl(0, 0%, 15%);
+            --adjusted-azure:  hsla(204, 100%, 90%, 0.4);
+
+            /* Scroll effect - smooth scroll */
+            scroll-behavior: smooth;
+        }
+        
+        /* scroll offset / margin - for ex. in cause when 
+           "relative" positioned items change the normal flow */
+        [id]{
+            scroll-margin-top: 286px;
+        }
+        
+        .shadowed {
+            box-shadow: 2px 2px 5px 2px  gray;
+        }
+
+        @media (max-width: 1200px) { 
+            
+            [id]{
+            scroll-margin-top: 272px;
+            }
+            
+
+            body, main, footer {
+                max-width:500px; display: flex; flex-direction: column; flex-wrap: wrap; 
+            }
+
+            body{
+                margin: 5px;  
+            }
+
+            main {
+            /*
+                margin-top: 280px;
+            */
+              }
+
+            #footer {                 
+            margin-bottom: 500px;
+            }
+
+            #container1{ 
+                width: 400px;
+            }
+
+            #container2 {
+                width: 450px;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            #video {
+                width: 400px;
+            }
+
+            #header { 
+                max-width: 504px;
+                flex-direction: column; 
+                background-color: black;
+                background-image: url('background1.png');
+                background-repeat: repeat-x;
+                flex-wrap: wrap;
+                margin: 10px auto 10px auto;
+            }
+
+            #header-img {
+            
+            }
+
+            #background-shape-holder {  
+            display: flex; 
+            flex-direction: column;
+            margin-top: -266px;
+            background-image: none !important;
+          }
+          
+            #nav-bar {  
+                
+            }
+            h1 { font-size: 32px !important; width: 100%; margin-left:210px; }
+
+            #nav-bar ul {  
+            flex-direction: row;  
+            flex-wrap: wrap;
+            }
+
+            #nav-bar li {
+                margin:4px 0px 4px 0px;
+            }
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+            width: 1200px;
+            margin: 10px auto auto auto;
+            min-height: 2150px;
+           
+            background: linear-gradient(0deg, gray, hsl(0, 0%, 15%), black);           
+        }
+
+        #header {
+            position: fixed;
+            top: 0px;
+            margin: 0px auto 0px auto;
+           
+            display:flex;
+            flex-direction: row;
+            width:1200px;
+            z-index:1;
+            border-bottom: 4px solid var(--sharped-goldenrod);
+            background-color: hsl(0, 0%, 15%);
+        }
+
+        #header-img {
+            height: 266px;
+            /*
+            border-left: 1px solid var(--sharped-goldenrod);
+            */
+        }
+
+        #background-shape-holder {
+            background-image: url('background1.png');
+            background-repeat: repeat-x; 
+            display: flex;
+            flex-direction: column;
+            height: 266px; 
+            width: 100%;         
+        }
+
+        h1{  
+            color: goldenrod;
+            position: relative;
+            left: -200px;     
+            font-size: 40px;   
+         }
+
+         h2{
+             background-color: var(--nice-lightblue);
+             color: goldenrod;
+             margin: 15px 0px 0px 0px;
+             padding: 5px;
+         }
+         h3{
+             font-weight: bolder;
+             color: red;
+             margin: 10px;
+         }
+
+        #nav-bar {    
+            height: 100%;
+            display: flex; 
+            flex-direction: row;
+            align-content: flex-end;
+            justify-content: flex-end;
+        }
+
+        #nav-bar ul {
+            display: flex;
+            align-self: flex-end;
+            justify-self: flex-end;
+            margin: 0px;
+        }
+
+        #nav-bar li {
+           /* display: inline;*/
+            font-weight: bolder;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            background-color: black;
+            color: goldenrod;
+            border: 1px solid goldenrod;
+            padding: 5px 5px 0px 5px ;
+        }
+
+        .nav-link:hover {
+           /* background-color: var(--sharped-goldenrod);*/
+           /* transform: scale(2.1);*/
+            border: 2px solid var(--sharped-goldenrod);
+
+            animation-name: hovered-button;
+            animation-duration: 1.25s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            /*
+            animation-name: menubuton;
+            animation-duration: 2s;
+            animation-iteration-count: 2;
+            animation-fill-mode: forwards;
+            */
+        }
+
+        @keyframes  hovered-button{ 
+            33%{
+                background-color:yellow;
+                color:dimgray;
+
+            }
+            66%{
+                background-color:var(--nice-lightblue);
+                    color: goldenrod;
+            }
+            100%{
+                background-color: goldenrod;
+                color: black;
+            }
+
+        }
+
+        main {
+            border: 2px solid var(--sharped-goldenrod);
+            position: relative;
+            top: 262px;
+            padding: 10px;
+            /*
+            background: linear-gradient(0deg, white, lightgray );
+            */
+            background: linear-gradient(0deg, hsl(47, 25%, 70%), hsl(47, 87%, 97%) );
+            z-index: 0; 
+        }
+      
+        #form {
+            display: flex;
+            justify-content: flex-end;
+            width:100%;
+        }
+
+        form label, input {
+            font-size: larger; 
+            margin: 5px; 
+        }
+
+        #email {
+            font-size: large;   
+        }
+
+        #submit{
+            background-color: goldenrod;
+            color: black;
+            font-size: large;
+            border-radius: 5px;
+
+        }
+        #submit:hover {
+            background-color: var(--nice-lightblue);
+            color: goldenrod;
+            border-radius: 10px;
+            transition: background-color 2000ms;
+            transition: color 500ms;
+            transition: border-radius 3s;
+        }
+        
+        button {
+            background-color:var(--nice-lightblue);
+            color: goldenrod;
+            font-size: 20px;
+            
+            border-width: 1px;
+            margin-bottom: 15px;
+
+        }
+        button:hover{
+            animation-name: hovered-button;
+            animation-duration: 1.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+
+            /*
+            background-color:goldenrod;
+            color:black;
+            transition: background-color 1s;
+            transition: color 500ms;
+            */
+        }
+
+        #video {
+            border: 1px solid var(--nice-lightblue);
+            background-color: var(--adjusted-azure);
+            border-radius: 15px;
+        }
+
+        i {
+            font-size: 40px;
+            color: var(--nice-lightblue);
+            margin: 10px;
+        }
+
+        #container1 li{
+            list-style: none;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--nice-lightblue);
+        }
+
+        #container2{
+            display: flex;
+            flex-direction: row;
+        }
+        #container2 img {
+            max-width:250px;
+            display: flex;
+        }
+        .producti {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid dimgray;
+            background:var(--adjusted-azure);
+
+            width: 275px;
+            margin: 10px;
+            border-radius: 15px;
+            padding-bottom: 15px;
+        }
+       
+       #footer{
+           display: flex;
+           flex-direction: row;
+
+           width: 1196px;
+           color:goldenrod;
+
+           background: linear-gradient(0deg, hsl(0, 0%, 5%), hsl(0, 0%, 35%)); 
+           border: 2px solid var(--sharped-goldenrod);
+           margin: 276px auto 20px auto;
+       }
+
+       p, figcaption {
+           font-size: larger;
+           margin: 2px;
+       }
+
+    </style>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" ></script> 
+    <header id="header">
+        <img id="header-img" src="https://danieeelll.github.io/3-Product-Landing-Page/wheel1.png" alt="Sharp saws company logo">
+        
+      <div id="background-shape-holder">
+        <h1>Sharp gliding mitre saws</H1>
+        
+        <nav id="nav-bar"> 
+            <ul>
+                <li>
+                    <a href="#form" target="_self" class="nav-link">Home/form</a>
+                </li>
+                <li>
+                    <a href="#container1" target="_self" class="nav-link">Our services</a>
+                </li>
+                <li>
+                    <a href="#video" class="nav-link">Video</a>
+                </li>
+                <li>
+                    <a href="#producti1" class="nav-link">Main product</a>
+                </li>
+                <li>
+                    <a href="#producti4" class="nav-link">Related products</a>
+                </li>
+                <li>
+                    <a href="#footer" class="nav-link">Company address</a>
+                </li>
+            </ul>
+        </nav>
+      </div>  
+    </header>
+<!-- not sure how to use main -->
+<main>
+    <form id="form" target="_blank" action="https://www.freecodecamp.com/email-submit">
+        <label for="email"> Please enter your email: </label>
+        <input id="email" type="email" name="email" placeholder="enter your email here" required>
+        <input id="submit" type="submit" valuet="Submit it">
+    </form>
+
+<section id="container1">  
+    <ul>
+        <li><i class="fab fa-amazon-pay"></i>Fast payment by ePay</li>
+        <li><i class="fas fa-ambulance"></i>Personal protective equipment (PPE) is important!</li>
+        <li><i class="fab fa-algolia"></i>&nbsp;Quick delivery</li>
+       
+    </ul>
+
+    <figure>
+       <video id="video" poster="img.img" class="shadowed" controls>
+           <source src="My Top 7 Miter Saw Tips for Beginners.mp4" type="video/mp4">
+       </video>
+        <figcaption>How to use this tool and PPE video is here</figcaption>
+    </figure>
+
+   
+</section>
+
+<section id="container2"> 
+    <article class="producti shadowed" id="producti1">
+        <h2>Best gliding mitre saw</h2>
+        <h3>449,- EUR</h3>
+        <img src="4.jpg" alt="gliding mitre saw">
+        <p>The best and most sharpest gliding mitre saw in our scope!</p>
+        <button>Choose</button>
+    </article>
+
+    <article class="producti shadowed" id="producti2">
+        <h2>Do not forget PPE!</h2>
+        <h3>5,- EUR</h3>
+        <img src="1.jpg" alt="gliding mitre saw">
+        <p>Personal protective equipment (PPE) is important!</p>
+        <button>Choose</button>      
+    </article>
+
+    <article class="producti shadowed" id="producti3">
+        <h2>Do not forget PPE!</h2>
+        <h3>15,- EUR</h3>
+        <img src="2.jpg" alt="gliding mitre saw">
+        <p>Personal protective equipment (PPE) is important!</p>
+        <button>Choose</button>
+    </article>
+
+    <article class="producti shadowed" id="producti4">
+        <h2>Do not forget PPE!</h2>
+        <h3>10,- EUR</h3>
+        <img src="3.jpg" alt="gliding mitre saw">
+        <p>Personal protective equipment (PPE) is important!</p>
+        <button>Choose</button>
+    </article>
+</section>
+
+
+</main>
+
+<footer id="footer">
+    <i class="fas fa-anchor">Lorem ipsum. Lorem.</i>
+    <p>Company...Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.</p> 
+    <p>Company...Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.</p> 
+    <ul>
+        <li>Lorem ipsum. Lorem ipsum.</li>  
+        <li>Lorem ipsum. Lorem ipsum. Lorem ipsum.</li>
+        <li>Lo Lorem ipsum.</li>
+    </ul>
+</footer>
+</body>
+</html>
