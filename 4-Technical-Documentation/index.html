@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical documentation - CSS FLEX</title>
+    <style>
+        :root{
+            /* set variables*/
+            --sharped-goldenrod:  rgb(197, 141, 0);
+            --nice-lightblue: #0F5897;
+            --dark-gray: hsl(0, 0%, 15%);
+            --adjusted-azure:  hsl(180, 88%, 93%);
+            --paper: hsl(44, 100%, 90%);
+
+            /* Scroll effect - smooth scroll */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Roboto Mono, monospace, Calibri;
+            background-color: var(--paper) ;   
+            display: flex;
+            flex-direction: column;
+        }
+
+        #body-shapeholder{
+            width: 1200px;
+            margin: 0px auto auto auto;
+
+            box-shadow: 10px 10px 30px 20px dimgray;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            width: 1200px;
+            margin: 10px auto 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        
+
+        #header-ofsetmaker { 
+            display: flex;
+            margin: 10px auto auto auto;
+            width:1200px;
+            height: 15px;
+            background-color:white; 
+            z-index: 1; 
+             }
+
+
+         @media (max-width: 1200px){
+            body {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin: 10px auto 10px auto;
+            }
+            #body-shapeholder, footer, #header-ofsetmaker, #navbar1 {
+                width: 670px !important;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin:0px;
+            }
+            #quote, #navbar, #navbar1, #freecodecamper, pre, blockquote, #main-doc1 {
+                margin:0px !important;
+            }
+
+            #navbar, #navbar1{
+                max-width: 650px;
+                flex-direction: row !important;
+                position: static !important;
+                flex-wrap: wrap;
+            }
+            #freecodecamper{
+                transform: rotate(-7deg) !important;
+            }
+            #navbar, #navbar1 ul {
+                width: 650px;
+                display: flex;
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                margin-left: -30px;
+            }
+            #navbar1 ul li {
+                list-style-type: none; border-right: 1px solid gray;  
+            }
+
+            #main-doc1 {
+                max-width: 660px;
+            } 
+                  
+        }
+
+        #navbar{
+            width: 430px;
+            height: 85%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            position: fixed;
+            top: 35px;
+            visibility: hidden;
+            display:none;
+        }
+        
+        #navbar1{
+            width: 430px;
+            height: 85%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            position: fixed;
+            top: 35px;
+        }
+
+        #navbar1 ul{
+            padding-left: 25px;
+        }
+        #navbar1 li{
+            border-bottom: 1px solid gray;
+        }
+
+        .nav-link1 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 5px;
+            
+            font-size: large;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @keyframes nav-link-trans {
+            
+            0% {
+                background-color: hsl(220, 100%, 90%);
+            }
+            100% {
+                background-color: hsl(60, 100%, 90%);
+            }
+        }
+
+        .nav-link1:hover {
+            /*
+            background-color: hsl(60, 100%, 85%);
+            transition: background-color, 1s;
+            */
+            animation-name: nav-link-trans;
+            animation-duration: 1.25s;
+            animation-iteration-count: 3;
+            animation-fill-mode:both;
+        }
+
+        .nav-link1 mark {
+          margin-left: 2px;
+          margin-right: 7px;
+        }
+
+        #navbar1 header {
+           font-size: 4em; 
+           align-self: flex-start;
+        }
+
+        #freecodecamper {
+            font-size: 1.5em;
+            font-weight: bolder;
+            color: hsl(20, 100%, 26%);
+            border: 3px solid hsl(20, 75%, 25%);
+            border-radius: 3px;
+            transform: rotate(-15deg);
+            width:280px;
+
+            display: flex;
+            justify-content: space-evenly;
+            text-indent: 120px;
+
+            margin-top: -50px;
+            margin-left: 140px;
+            margin-bottom: 60px;
+            padding: 3px;
+        }
+
+        #main-doc {
+            border-left: 1px solid gray;
+            background-color: white;
+            padding: 15px 5px 5px 5px;
+            margin-left: 450px;
+            margin-top: -15px;
+            visibility: hidden;
+            display:none;
+        }
+        #main-doc1 {
+            border-left: 1px solid gray;
+            background-color: white;
+            padding: 15px 5px 5px 5px;
+            margin-left: 450px;
+            margin-top: -15px;
+        }
+
+        .main-section1 {
+            border-bottom: 1px solid gray;
+            padding:20px 10px 5px 10px;
+        }
+        header{
+            font-size: 2em;
+        }
+
+        mark {
+            padding: 0px 4px 0px 4px;
+        }
+        article mark {
+            font-weight: bold;
+            font-size: 1.10em;
+            padding: 1px 3px 1px 3px;
+        }
+
+        code {
+            /*text-decoration: green wavy underline;*/
+            background-color: hsl(350, 100%, 94%);
+            font-size: 1.25em;
+            font-weight: bold;
+            font-style: normal;
+            padding: 1px 3px 1px 3px;
+        }
+        blockquote {
+            border: 2px dotted greenyellow;
+            background-color: hsl(120, 100%, 96%);
+            font-style: italic;
+            padding: 5px 10px 5px 10px;
+
+        }
+        pre { 
+            background-color: hsl(351, 94%, 94%);
+        }
+        #quote {
+            margin-top: 120px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="header-ofsetmaker"></div>
+<div id="body-shapeholder">
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" ></script>
+
+    <nav id="navbar1">
+        <header><mark>CSS FLEX</mark></header>
+        <h2 id="freecodecamper">by <br>www.freecodecamp.org</h2>
+        <ul>
+            <li>
+                <a class="nav-link1" href="#flexbox_/_flexible_boxes1"><mark>flexbox</mark> / flexible boxes</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#display:_flex_-_turn_on_flex_properties1"><mark>display: flex</mark> - turn on flex properties</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#flex-direction_property_to_make_row_and_column1"><mark>flex-direction</mark> property to make <mark>row</mark> and <mark>column</mark></a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#aligning_elements:_justify-content_and_align-items_property1">aligning elements: <mark>justify-content</mark> and <mark>align-items</mark> property</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#aligning_elements:_align-self1">aligning elements: <mark>align-self</mark></a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#flex-wrap_property1"><mark>flex-wrap</mark> property</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them1"><mark>flex-shrink, flex-grow, flex-basis</mark> and grouped syntax for them</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#order_property1"><mark>order</mark> property</a>
+            </li>
+            <li>
+                <a class="nav-link1" href="#top">go to the top</a>
+            </li>
+        </ul>
+        <p id="quote">Quotes and pieces of code from <a href="www.freecodecamp.org">www.freecodecamp.org</a></p>
+    </nav>
+
+    <!-- set to hidden for the verification process. It would ruin my joy if I cannot see my fanny higlighted menu there... as is visible in #navbar1 -->
+    <nav id="navbar">
+        <header><mark>CSS FLEX</mark></header>
+        <h2 id="freecodecamper" >by <br>www.freecodecamp.org</h2>
+        <ul>
+            <li>
+                <a class="nav-link" href="#flexbox_/_flexible_boxes">flexbox / flexible boxes</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#display:_flex_-_turn_on_flex_properties">display: flex - turn on flex properties</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-direction_property_to_make_row_and_column">flex-direction property to make row and column</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#aligning_elements:_justify-content_and_align-items_property">aligning elements: justify-content and align-items property</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#aligning_elements:_align-self">aligning elements: align-self</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-wrap_property">flex-wrap property</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them">flex-shrink, flex-grow, flex-basis and grouped syntax for them</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#order_property">order property</a>
+            </li>
+
+        </ul>
+
+        <p id="quote">Quotes and pieces of code from <a href="www.freecodecamp.org">www.freecodecamp.org</a></p>
+    </nav>
+
+
+    <!-- 
+         1. id that corresponds with the text of each header contained within it. Any spaces should be replaced with underscores
+            What_you_should_already_know
+         2. User Story #5: The .main-section elements should contain at least 10 p elements total (not each).
+         3. User Story #6: The .main-section elements should contain at least 5 code elements total (not each).
+         4. User Story #7: The .main-section elements should contain at least 5 li items total (not each).  
+    -->
+    <main id="main-doc1">
+        
+        <!-- content -->
+            <section class="main-section1" id="flexbox_/_flexible_boxes1">
+                <header><mark>flexbox</mark> / flexible boxes</header>
+
+                <article>
+                <p>CSS3 property for layout or positioning of elements.</p>
+                <p>It is a powerfull replacement of clasic CSS properties for positioning items like: 
+                    <ul>
+                        <li>display: block, inline, inline-block, ...</li>
+                        <li>float: left, right, none</li>
+                        <li>vertical-align: center, top, bottom, baseline   (mostly for block element)</li>
+                        <li>text-align: left, right, center (for inline) ….)</li>
+                        <li>z-index: 0,1,2...</li>
+                    </ul>
+                </p>
+                <p>Most of content or HTML code is quoted from powerfull web: <a href="www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org </a>
+                </p>
+                </article>
+            </section>
+
+            <section class="main-section1" id="display:_flex_-_turn_on_flex_properties1">
+                <header><mark>display: flex</mark> - turn on flex properties</header>
+                <article>
+                    <p><code>display: flex;</code> property must be placed to the element where we want to use 
+                    all FLEX properties.</p>
+                    <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                    <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                            height: 500px;
+                            <mark>display: flex;</mark>
+                            #box-1 {
+                                background-color: dodgerblue;
+                                width: 50%;
+                                height: 50%;
+                            }
+                            #box-2 {
+                                background-color: orangered;
+                                width: 50%;
+                                height: 50%;
+                            }
+                        }
+
+                        &lt;/style&gt;
+                        &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code></pre>
+                    </blockquote>
+                    <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-display-flex-to-position-two-boxes" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section1" id="flex-direction_property_to_make_row_and_column1">
+                <header><mark>flex-direction</mark> property to make <mark>row and column</mark></header>
+                <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                <p>Adding <code>display: flex</code> to an element turns it into a flex container. This makes it
+                    possible to align any children of that element into rows or columns. You do this by adding the <code>flex-direction</code> property to
+                    the parent item and setting
+                    it to row or column. Creating a <mark>row</mark> will align the children horizontally, and creating a <mark>column</mark> will
+                    align the children vertically.</p>
+                <p>Other options for <code>flex-direction</code> are <code>row-reverse</code> and
+                    <code>column-reverse</code>.</p>
+                <p><strong>Note:</strong> The default value for the <code>flex-direction</code> property is
+                    <code>row</code>.</p>
+                <pre><code>
+                        &lt;style&gt;
+                        #box-container {
+                            display: flex;
+                            height: 500px;
+                            <mark>flex-direction: column;</mark>
+                          }
+                          #box-1 {
+                            background-color: dodgerblue;
+                            width: 50%;
+                            height: 50%;
+                          }
+                        
+                          #box-2 {
+                            background-color: orangered;
+                            width: 50%;
+                            height: 50%;
+                          }
+                          &lt;/style&gt;
+                    </code></pre>
+
+                </blockquote>
+                <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section1" id="aligning_elements:_justify-content_and_align-items_property1">
+                <header>aligning elements: <mark>justify-content</mark> and <mark>align-items</mark> property</header>
+                
+                <article>
+                <p>A replacement of standart vertical-align and text-align aligning property. 
+                <ul>
+                    <li> <code>justify-content</code> is used mostly for <mark>horizontal align</mark> (respectively <mark>it is for "main axis"</mark>)</li>
+                    <li> <code>align-items</code> is commonly used for vertical aligning or spacing (most exactly it is for "cross axis")</li>
+                    <li>bellow is a picture which examined how is this the main and cross axis pricipe works.
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">illustrate the concepts</a>
+                    </li>
+                </ul>
+                </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-justify-content-property">                 
+                <p>Sometimes the flex items within a flex container do not fill all the space in the container. It is common to want to tell CSS how to 
+                    align and space out the flex items a certain way. Fortunately, the <code>justify-content</code> property has several options to do this. 
+                    But first, there is some important terminology to understand before reviewing those options.</p><p>
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">Here is a useful image showing 
+                            a row to illustrate the concepts below.</a></p>
+                <p>Recall that setting a flex container as a row places the flex items side-by-side from left-to-right. A flex container set as a 
+                    column places the flex items in a vertical stack from top-to-bottom. For each, the direction the flex items are arranged is called
+                    the <strong>main axis</strong>. For a row, this is a horizontal line that cuts through each item. And for a column, the main axis 
+                    is a vertical line through the items.</p>
+                <p>There are several options for how to space the flex items along the line that is the main axis. One of the most commonly used is <code>justify-content: center;</code>, which aligns all the flex items to the center inside the flex container. Others options include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container. This is the default alignment if no <code>justify-content</code> is specified.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.</li><li><code>space-between</code>: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the remaining space is distributed evenly among the other items.</li><li><code>space-around</code>: similar to <code>space-between</code> but the first and last items are not locked to the edges of the container, the space is distributed around all the items with a half space on either end of the flex container.</li><li><code>space-evenly</code>: Distributes space evenly between the flex items with a full space at either end of the flex container</li></ul><p></p>
+            </blockquote>     
+            </article>
+
+            <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-align-items-property">
+                <p>The <code>align-items</code> property is similar to <code>justify-content</code>. Recall that the <code>justify-content</code> property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.</p>
+                <p>Flex containers also have a <strong>cross axis</strong> which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.</p>
+                <p>CSS offers the <code>align-items</code> property to align flex items along the <mark>cross axis</mark>. For a row, it tells CSS how to push the items in the entire row up or down within the container. And for a column, how to push all the items left or right within the container.</p>
+                <p>The different values available for <code>align-items</code> include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.</li><li><code>center</code>: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).</li><li><code>stretch</code>: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the default value if no <code>align-items</code> value is specified.</li><li><code>baseline</code>: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.</li></ul><p></p>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section1" id="aligning_elements:_align-self1">
+            <header>aligning elements: <mark>align-self</mark></header>
+            <article>
+                <p>Alinging/spacing element itself. Justify-content, align-items is for parent element. </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-align-self-property">
+                <p>This is useful since other common adjustment techniques using the CSS properties float, clear, and vertical-align do not work on flex items.
+                </p><p>
+                    align-self accepts the same values as align-items and will override any value set by the align-items property.</p>
+                </blockquote>
+            </article>
+        </section>
+
+        <section class="main-section1" id="flex-wrap_property1">
+            <header><mark>flex-wrap</mark> property</header>
+            <article>
+                <p><mark>flex-wrap property</mark> split items to more rows or columns. For example: For the inline elements it will wrap the text on two rows.</p>
+                
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-wrap-property-to-wrap-a-row-or-column">
+                <p>CSS flexbox has a feature to split a flex item into multiple rows (or columns). By default, a flex container will fit all flex items together. For example, a row will all be on one line.</p>
+                <p>However, using the <code>flex-wrap</code> property tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.</p>
+                <p>CSS also has options for the direction of the wrap:</p><p></p><ul><li><code>nowrap</code>: this is the default setting, and does not wrap items.</li><li><code>wrap</code>: wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.</li><li><code>wrap-reverse</code>: wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.</li></ul><p></p>
+                
+                <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                          background: gray;
+                          display: flex;
+                          height: 100%;
+                        }
+
+                        #box-1 {
+                          background-color: dodgerblue;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      
+                        #box-2 {
+                          background-color: orangered;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-3 {
+                          background-color: violet;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-4 {
+                          background-color: yellow;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-5 {
+                          background-color: green;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-6 {
+                          background-color: black;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      &lt;/style&gt;
+                      
+                      &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;div id="box-3"&gt;&lt;/div&gt;
+                        &lt;div id="box-4"&gt;&lt;/div&gt;
+                        &lt;div id="box-5"&gt;&lt;/div&gt;
+                        &lt;div id="box-6"&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    </code></pre>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section1" id="flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them1">
+            <header><mark>flex-shrink, flex-grow, flex-basis</mark> and grouped syntax for them</header>
+            <article>
+                    <ul>
+                        <li><code><mark>flex-shrink</mark></code>:to shrink /to decrease elements</li>
+                        <li><code><mark>flex-grow</mark></code>:to infante / to increase elements</li>
+                        <li><code><mark>flex-basis</mark></code>: set the default, basis value for handled elements</li>
+                        <li><code><mark>flex</mark></code>: this is a multiple syntax for those three properties</li>
+                    </ul>
+                        <p>element1, 2: <code>flex-basis: 20px;</code> element1: <code>flex-grow:3;</code> element2: <code>flex-shrink: 2;</code></p>
+                    <ul>
+                        <li><code>flex-shrink, flex-grow</code> we set a relative values for them. For example: <strong><mark> 3:1 </mark></strong></li>
+                        <li><code>flex-basis:</code> there are absolute values. Like: 10px, em, %... </li>
+                        <li><code>flex</code> it is a shortcut syntax which group all previous three. flex: 3 0 10px; In order as it is mentioned/written above.  </li>
+                    </ul>
+                <code>flex: 3 0 20px;</code>
+            </article>
+        </section>
+
+        <section class="main-section1" id="order_property1">
+            <header><mark>order</mark> property</header>
+            <article>
+                <p>Used as numbered/ordered list for element appearing. Something like Z-index. Set the overlay or covering items. </p>
+                <p>It is using the positive as well as negative number for set the first / last value. (...-1,0,1,2...)
+                <code>order:3;</code>
+            </article>
+        </section>
+
+    </main>
+
+    <main id="main-doc">
+        
+        <!-- content -->
+            <section class="main-section" id="flexbox_/_flexible_boxes">
+                <header>flexbox / flexible boxes</header>
+
+                <article>
+                <p>CSS3 property for layout or positioning of elements.</p>
+                <p>It is a powerfull replacement of clasic CSS properties for positioning items like: 
+                    <ul>
+                        <li>display: block, inline, inline-block, ...</li>
+                        <li>float: left, right, none</li>
+                        <li>vertical-align: center, top, bottom, baseline   (mostly for block element)</li>
+                        <li>text-align: left, right, center (for inline) ….)</li>
+                        <li>z-index: 0,1,2...</li>
+                    </ul>
+                </p>
+                <p>Most of content or HTML code is quoted from powerfull web: <a href="www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org </a>
+                </p>
+                </article>
+            </section>
+
+            <section class="main-section" id="display:_flex_-_turn_on_flex_properties">
+                <header>display: flex - turn on flex properties</header>
+                <article>
+                    <p><code>display: flex;</code> property must be placed to the element where we want to use 
+                    all FLEX properties.</p>
+                    <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                    <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                            height: 500px;
+                            <mark>display: flex;</mark>
+                            #box-1 {
+                                background-color: dodgerblue;
+                                width: 50%;
+                                height: 50%;
+                            }
+                            #box-2 {
+                                background-color: orangered;
+                                width: 50%;
+                                height: 50%;
+                            }
+                        }
+
+                        &lt;/style&gt;
+                        &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code></pre>
+                    </blockquote>
+                    <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-display-flex-to-position-two-boxes" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section" id="flex-direction_property_to_make_row_and_column">
+                <header>flex-direction property to make row and column</header>
+                <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                <p>Adding <code>display: flex</code> to an element turns it into a flex container. This makes it
+                    possible to align any children of that element into rows or columns. You do this by adding the <code>flex-direction</code> property to
+                    the parent item and setting
+                    it to row or column. Creating a <mark>row</mark> will align the children horizontally, and creating a <mark>column</mark> will
+                    align the children vertically.</p>
+                <p>Other options for <code>flex-direction</code> are <code>row-reverse</code> and
+                    <code>column-reverse</code>.</p>
+                <p><strong>Note:</strong> The default value for the <code>flex-direction</code> property is
+                    <code>row</code>.</p>
+                <pre><code>
+                        &lt;style&gt;
+                        #box-container {
+                            display: flex;
+                            height: 500px;
+                            <mark>flex-direction: column;</mark>
+                          }
+                          #box-1 {
+                            background-color: dodgerblue;
+                            width: 50%;
+                            height: 50%;
+                          }
+                        
+                          #box-2 {
+                            background-color: orangered;
+                            width: 50%;
+                            height: 50%;
+                          }
+                          &lt;/style&gt;
+                    </code></pre>
+
+                </blockquote>
+                <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section" id="aligning_elements:_justify-content_and_align-items_property">
+                <header>aligning elements: justify-content and align-items property</header>
+                
+                <article>
+                <p>A replacement of standart vertical-align and text-align aligning property. 
+                <ul>
+                    <li> <code>justify-content</code> is used mostly for <mark>horizontal align</mark> (respectively <mark>it is for "main axis"</mark>)</li>
+                    <li> <code>align-items</code> is commonly used for vertical aligning or spacing (most exactly it is for "cross axis")</li>
+                    <li>bellow is a picture which examined how is this the main and cross axis pricipe works.
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">illustrate the concepts</a>
+                    </li>
+                </ul>
+                </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-justify-content-property">                 
+                <p>Sometimes the flex items within a flex container do not fill all the space in the container. It is common to want to tell CSS how to 
+                    align and space out the flex items a certain way. Fortunately, the <code>justify-content</code> property has several options to do this. 
+                    But first, there is some important terminology to understand before reviewing those options.</p><p>
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">Here is a useful image showing 
+                            a row to illustrate the concepts below.</a></p>
+                <p>Recall that setting a flex container as a row places the flex items side-by-side from left-to-right. A flex container set as a 
+                    column places the flex items in a vertical stack from top-to-bottom. For each, the direction the flex items are arranged is called
+                    the <strong>main axis</strong>. For a row, this is a horizontal line that cuts through each item. And for a column, the main axis 
+                    is a vertical line through the items.</p>
+                <p>There are several options for how to space the flex items along the line that is the main axis. One of the most commonly used is <code>justify-content: center;</code>, which aligns all the flex items to the center inside the flex container. Others options include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container. This is the default alignment if no <code>justify-content</code> is specified.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.</li><li><code>space-between</code>: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the remaining space is distributed evenly among the other items.</li><li><code>space-around</code>: similar to <code>space-between</code> but the first and last items are not locked to the edges of the container, the space is distributed around all the items with a half space on either end of the flex container.</li><li><code>space-evenly</code>: Distributes space evenly between the flex items with a full space at either end of the flex container</li></ul><p></p>
+            </blockquote>     
+            </article>
+
+            <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-align-items-property">
+                <p>The <code>align-items</code> property is similar to <code>justify-content</code>. Recall that the <code>justify-content</code> property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.</p>
+                <p>Flex containers also have a <strong>cross axis</strong> which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.</p>
+                <p>CSS offers the <code>align-items</code> property to align flex items along the <mark>cross axis</mark>. For a row, it tells CSS how to push the items in the entire row up or down within the container. And for a column, how to push all the items left or right within the container.</p>
+                <p>The different values available for <code>align-items</code> include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.</li><li><code>center</code>: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).</li><li><code>stretch</code>: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the default value if no <code>align-items</code> value is specified.</li><li><code>baseline</code>: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.</li></ul><p></p>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section" id="aligning_elements:_align-self">
+            <header>aligning elements: align-self</header>
+            <article>
+                <p>Alinging/spacing element itself. Justify-content, align-items is for parent element. </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-align-self-property">
+                <p>This is useful since other common adjustment techniques using the CSS properties float, clear, and vertical-align do not work on flex items.
+                </p><p>
+                    align-self accepts the same values as align-items and will override any value set by the align-items property.</p>
+                </blockquote>
+            </article>
+        </section>
+
+        <section class="main-section" id="flex-wrap_property">
+            <header>flex-wrap property</header>
+            <article>
+                <p><mark>flex-wrap property</mark> split items to more rows or columns. For example: For the inline elements it will wrap the text on two rows.</p>
+                
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-wrap-property-to-wrap-a-row-or-column">
+                <p>CSS flexbox has a feature to split a flex item into multiple rows (or columns). By default, a flex container will fit all flex items together. For example, a row will all be on one line.</p>
+                <p>However, using the <code>flex-wrap</code> property tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.</p>
+                <p>CSS also has options for the direction of the wrap:</p><p></p><ul><li><code>nowrap</code>: this is the default setting, and does not wrap items.</li><li><code>wrap</code>: wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.</li><li><code>wrap-reverse</code>: wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.</li></ul><p></p>
+                
+                <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                          background: gray;
+                          display: flex;
+                          height: 100%;
+                        }
+
+                        #box-1 {
+                          background-color: dodgerblue;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      
+                        #box-2 {
+                          background-color: orangered;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-3 {
+                          background-color: violet;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-4 {
+                          background-color: yellow;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-5 {
+                          background-color: green;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-6 {
+                          background-color: black;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      &lt;/style&gt;
+                      
+                      &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;div id="box-3"&gt;&lt;/div&gt;
+                        &lt;div id="box-4"&gt;&lt;/div&gt;
+                        &lt;div id="box-5"&gt;&lt;/div&gt;
+                        &lt;div id="box-6"&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    </code></pre>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section" id="flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them">
+            <header>flex-shrink, flex-grow, flex-basis and grouped syntax for them</header>
+            <article>
+                    <ul>
+                        <li><code><mark>flex-shrink</mark></code>:to shrink /to decrease elements</li>
+                        <li><code><mark>flex-grow</mark></code>:to infante / to increase elements</li>
+                        <li><code><mark>flex-basis</mark></code>: set the default, basis value for handled elements</li>
+                        <li><code><mark>flex</mark></code>: this is a multiple syntax for those three properties</li>
+                    </ul>
+                        <p>element1, 2: <code>flex-basis: 20px;</code> element1: <code>flex-grow:3;</code> element2: <code>flex-shrink: 2;</code></p>
+                    <ul>
+                        <li><code>flex-shrink, flex-grow</code> we set a relative values for them. For example: <strong><mark> 3:1 </mark></strong></li>
+                        <li><code>flex-basis:</code> there are absolute values. Like: 10px, em, %... </li>
+                        <li><code>flex</code> it is a shortcut syntax which group all previous three. flex: 3 0 10px; In order as it is mentioned/written above.  </li>
+                    </ul>
+                <code>flex: 3 0 20px;</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="order_property">
+            <header>order property</header>
+            <article>
+                <p>Used as numbered/ordered list for element appearing. Something like Z-index. Set the overlay or covering items. </p>
+                <p>It is using the positive as well as negative number for set the first / last value. (...-1,0,1,2...)
+                <code>order:3;</code>
+            </article>
+        </section>
+
+    </main>
+</div>
+<footer><p>Quotes and pieces of code from <a href="www.freecodecamp.org">www.freecodecamp.org</a></p></footer>
+
+</body>
+</html>
+
+<!--
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<div id="header-ofsetmaker"></div>
+<div id="body-shapeholder">
+    
+    <nav id="navbar">
+        <header><mark>CSS FLEX</mark></header>
+        <h2 id="freecodecamper" >by <br>www.freecodecamp.org</h2>
+        <ul>
+            <li>
+                <a class="nav-link" href="#flexbox_/_flexible_boxes">flexbox / flexible boxes</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#display:_flex_-_turn_on_flex_properties">display: flex - turn on flex properties</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-direction_property_to_make_row_and_column">flex-direction property to make row and column</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#aligning_elements:_justify-content_and_align-items_property">aligning elements: justify-content and align-items property</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#aligning_elements:_align-self">aligning elements: align-self</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-wrap_property">flex-wrap property</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them.">flex-shrink, flex-grow, flex-basis and grouped syntax for them.</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#order_property">order property</a>
+            </li>
+
+        </ul>
+
+        <p id="quote">Quotes and pieces of code from <a href="www.freecodecamp.org">www.freecodecamp.org</a></p>
+    </nav>
+
+    <main id="main-doc">
+        
+            <section class="main-section" id="flexbox_/_flexible_boxes">
+                <header><mark>flexbox</mark> / flexible boxes</header>
+
+                <article>
+                <p>CSS3 property for layout or positioning of elements.</p>
+                <p>It is a powerfull replacement of clasic CSS properties for positioning items like: 
+                    <ul>
+                        <li>display: block, inline, inline-block, ...</li>
+                        <li>float: left, right, none</li>
+                        <li>vertical-align: center, top, bottom, baseline   (mostly for block element)</li>
+                        <li>text-align: left, right, center (for inline) ….)</li>
+                        <li>z-index: 0,1,2...</li>
+                    </ul>
+                </p>
+                <p>Most of content or HTML code is quoted from powerfull web: <a href="www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org </a>
+                </p>
+                </article>
+            </section>
+
+            <section class="main-section" id="display:_flex_-_turn_on_flex_properties">
+                <header><mark>display: flex</mark> - turn on flex properties</header>
+                <article>
+                    <p><code>display: flex;</code> property must be placed to the element where we want to use 
+                    all FLEX properties.</p>
+                    <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                    <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                            height: 500px;
+                            <mark>display: flex;</mark>
+                            #box-1 {
+                                background-color: dodgerblue;
+                                width: 50%;
+                                height: 50%;
+                            }
+                            #box-2 {
+                                background-color: orangered;
+                                width: 50%;
+                                height: 50%;
+                            }
+                        }
+
+                        &lt;/style&gt;
+                        &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code></pre>
+                    </blockquote>
+                    <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-display-flex-to-position-two-boxes" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section" id="flex-direction_property_to_make_row_and_column">
+                <header><mark>flex-direction</mark> property to make <mark>row and column</mark></header>
+                <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row">
+                <p>Adding <code>display: flex</code> to an element turns it into a flex container. This makes it
+                    possible to align any children of that element into rows or columns. You do this by adding the <code>flex-direction</code> property to
+                    the parent item and setting
+                    it to row or column. Creating a <mark>row</mark> will align the children horizontally, and creating a <mark>column</mark> will
+                    align the children vertically.</p>
+                <p>Other options for <code>flex-direction</code> are <code>row-reverse</code> and
+                    <code>column-reverse</code>.</p>
+                <p><strong>Note:</strong> The default value for the <code>flex-direction</code> property is
+                    <code>row</code>.</p>
+                <pre><code>
+                        &lt;style&gt;
+                        #box-container {
+                            display: flex;
+                            height: 500px;
+                            <mark>flex-direction: column;</mark>
+                          }
+                          #box-1 {
+                            background-color: dodgerblue;
+                            width: 50%;
+                            height: 50%;
+                          }
+                        
+                          #box-2 {
+                            background-color: orangered;
+                            width: 50%;
+                            height: 50%;
+                          }
+                          &lt;/style&gt;
+                    </code></pre>
+
+                </blockquote>
+                <p>the code citation was taken from <a href="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-direction-property-to-make-a-row" alt="www.freecodecamp.org homepage">www.freecodecamp.org Flexboxes challenges.</a>.
+            </article>
+            </section>
+
+            <section class="main-section" id="aligning_elements:_justify-content_and_align-items_property">
+                <header>aligning elements: <mark>justify-content</mark> and <mark>align-items</mark> property</header>
+                
+                <article>
+                <p>A replacement of standart vertical-align and text-align aligning property. 
+                <ul>
+                    <li> <code>justify-content</code> is used mostly for <mark>horizontal align</mark> (respectively <mark>it is for "main axis"</mark>)</li>
+                    <li> <code>align-items</code> is commonly used for vertical aligning or spacing (most exactly it is for "cross axis")</li>
+                    <li>bellow is a picture which examined how is this the main and cross axis pricipe works.
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">illustrate the concepts</a>
+                    </li>
+                </ul>
+                </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-justify-content-property">                 
+                <p>Sometimes the flex items within a flex container do not fill all the space in the container. It is common to want to tell CSS how to 
+                    align and space out the flex items a certain way. Fortunately, the <code>justify-content</code> property has several options to do this. 
+                    But first, there is some important terminology to understand before reviewing those options.</p><p>
+                        <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" target="_blank">Here is a useful image showing 
+                            a row to illustrate the concepts below.</a></p>
+                <p>Recall that setting a flex container as a row places the flex items side-by-side from left-to-right. A flex container set as a 
+                    column places the flex items in a vertical stack from top-to-bottom. For each, the direction the flex items are arranged is called
+                    the <strong>main axis</strong>. For a row, this is a horizontal line that cuts through each item. And for a column, the main axis 
+                    is a vertical line through the items.</p>
+                <p>There are several options for how to space the flex items along the line that is the main axis. One of the most commonly used is <code>justify-content: center;</code>, which aligns all the flex items to the center inside the flex container. Others options include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container. This is the default alignment if no <code>justify-content</code> is specified.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.</li><li><code>space-between</code>: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the remaining space is distributed evenly among the other items.</li><li><code>space-around</code>: similar to <code>space-between</code> but the first and last items are not locked to the edges of the container, the space is distributed around all the items with a half space on either end of the flex container.</li><li><code>space-evenly</code>: Distributes space evenly between the flex items with a full space at either end of the flex container</li></ul><p></p>
+            </blockquote>     
+            </article>
+
+            <article>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-align-items-property">
+                <p>The <code>align-items</code> property is similar to <code>justify-content</code>. Recall that the <code>justify-content</code> property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.</p>
+                <p>Flex containers also have a <strong>cross axis</strong> which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.</p>
+                <p>CSS offers the <code>align-items</code> property to align flex items along the <mark>cross axis</mark>. For a row, it tells CSS how to push the items in the entire row up or down within the container. And for a column, how to push all the items left or right within the container.</p>
+                <p>The different values available for <code>align-items</code> include:</p><p></p><ul><li><code>flex-start</code>: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.</li><li><code>flex-end</code>: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.</li><li><code>center</code>: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).</li><li><code>stretch</code>: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the default value if no <code>align-items</code> value is specified.</li><li><code>baseline</code>: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.</li></ul><p></p>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section" id="aligning_elements:_align-self">
+            <header>aligning elements: <mark>align-self</mark></header>
+            <article>
+                <p>Alinging/spacing element itself. Justify-content, align-items is for parent element. </p>
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-align-self-property">
+                <p>This is useful since other common adjustment techniques using the CSS properties float, clear, and vertical-align do not work on flex items.
+                </p><p>
+                    align-self accepts the same values as align-items and will override any value set by the align-items property.</p>
+                </blockquote>
+            </article>
+        </section>
+
+        <section class="main-section" id="flex-wrap_property">
+            <header><mark>flex-wrap</mark> property</header>
+            <article>
+                <p><mark>flex-wrap property</mark> split items to more rows or columns. For example: For the inline elements it will wrap the text on two rows.</p>
+                
+                <blockquote cite="https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-flex-wrap-property-to-wrap-a-row-or-column">
+                <p>CSS flexbox has a feature to split a flex item into multiple rows (or columns). By default, a flex container will fit all flex items together. For example, a row will all be on one line.</p>
+                <p>However, using the <code>flex-wrap</code> property tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.</p>
+                <p>CSS also has options for the direction of the wrap:</p><p></p><ul><li><code>nowrap</code>: this is the default setting, and does not wrap items.</li><li><code>wrap</code>: wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.</li><li><code>wrap-reverse</code>: wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.</li></ul><p></p>
+                
+                <pre><code>
+                    &lt;style&gt;
+                        #box-container {
+                          background: gray;
+                          display: flex;
+                          height: 100%;
+                        }
+
+                        #box-1 {
+                          background-color: dodgerblue;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      
+                        #box-2 {
+                          background-color: orangered;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-3 {
+                          background-color: violet;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-4 {
+                          background-color: yellow;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-5 {
+                          background-color: green;
+                          width: 25%;
+                          height: 50%;
+                        }
+                        #box-6 {
+                          background-color: black;
+                          width: 25%;
+                          height: 50%;
+                        }
+                      &lt;/style&gt;
+                      
+                      &lt;div id="box-container"&gt;
+                        &lt;div id="box-1"&gt;&lt;/div&gt;
+                        &lt;div id="box-2"&gt;&lt;/div&gt;
+                        &lt;div id="box-3"&gt;&lt;/div&gt;
+                        &lt;div id="box-4"&gt;&lt;/div&gt;
+                        &lt;div id="box-5"&gt;&lt;/div&gt;
+                        &lt;div id="box-6"&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    </code></pre>
+                </blockquote>
+            </article>
+            <p>Quoted from <a href="https://www.freecodecamp.org" alt="www.freecodecamp.org homepage">www.freecodecamp.org</a>.</p>
+        </section>
+
+        <section class="main-section" id="flex-shrink,_flex-grow,_flex-basis_and_grouped_syntax_for_them.">
+            <header><mark>flex-shrink, flex-grow, flex-basis</mark> and grouped syntax for them.</header>
+            <article>
+                    <ul>
+                        <li><code><mark>flex-shrink</mark></code>:to shrink /to decrease elements</li>
+                        <li><code><mark>flex-grow</mark></code>:to infante / to increase elements</li>
+                        <li><code><mark>flex-basis</mark></code>: set the default, basis value for handled elements</li>
+                        <li><code><mark>flex</mark></code>: this is a multiple syntax for those three properties</li>
+                    </ul>
+                        <p>element1, 2: <code>flex-basis: 20px;</code> element1: <code>flex-grow:3;</code> element2: <code>flex-shrink: 2;</code></p>
+                    <ul>
+                        <li><code>flex-shrink, flex-grow</code> we set a relative values for them. For example: <strong><mark> 3:1 </mark></strong></li>
+                        <li><code>flex-basis:</code> there are absolute values. Like: 10px, em, %... </li>
+                        <li><code>flex</code> it is a shortcut syntax which group all previous three. flex: 3 0 10px; In order as it is mentioned/written above.  </li>
+                    </ul>
+                <code>flex: 3 0 20px;</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="order_property">
+            <header><mark>order</mark> property</header>
+            <article>
+                <p>Used as numbered/ordered list for element appearing. Something like Z-index. Set the overlay or covering items. </p>
+                <p>It is using the positive as well as negative number for set the first / last value. (...-1,0,1,2...)
+                <code>order:3;</code>
+            </article>
+        </section>
+
+    </main>
+</div>
+<footer><p>Quotes and pieces of code from <a href="www.freecodecamp.org">www.freecodecamp.org</a></p></footer>
+
+
+-->
