@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css.css">
+    <link type="text/css" rel="stylesheet" href="css-media.css"> 
+    <title>Daniels personal portfolio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <style>
+        /* fake-@media `cos of the "bundle.js" does not want to see my css @media file ;) */
+        @media (max-width: 10px){
+            body {font-size: 1em;}
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/c9e54c7759.js" crossorigin="anonymous"></script>    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ripples.js"></script>
+    
+</head>
+<body class="">
+     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" ></script>
+ 
+     <!-- <div id="testPositionID"> </div> -->
+    <div class="repl-anchor">
+        <!-- <div class="out1">out1</div> -->
+        <div id="gr1" class="repl-ini"></div>
+        <div id="gr2" class="repl-ini"></div>
+        <div id="gr3" class="repl-ini"></div>
+        <div id="gr4" class="repl-ini"></div>
+        <!-- <div class="out2">out2</div> -->
+    </div>
+
+    <nav id="navbar">
+        <div id="setting">
+            <span class="setting-text-wrapper">
+            <i class="fas fa-tools"></i>
+            <a href="#setting-article" id="navy1-3" data-html="true" data-title="You can quickly change some page effect settings right here.                       Or you can clik on this button and you will be moved to the more precise setting section page." alt="forwarded panel for visual effects setting - navigation menu continued to the right side">Settings</a>
+            </span>
+            <div id="setting-wrapper">
+                <fieldset>
+                    <legend>Visual effects settings panel:</legend>
+                    
+                    <label for="setting1" data-title='A nice "watter surface ripple" effect builded on jQuery framework by Pim Schreurs / Sirxemic from Netherlands.'>
+                        <input id="setting1" name="setting" class="apple-switch" type="checkbox" data-title="turned off"> watter ripple effect
+                    </label>
+                    <label for="setting2" data-title='Parallax is a difference in the apparent position of objects in order by the point of view from which they are observed. This solution is based on pure CSS witch is using the transformation on the Z-axis with 3D perspective property.'>
+                        <input id="setting2" name="setting" class="apple-switch" type="checkbox" data-title="turned off"> parallax background effect
+                    </label>
+                    <label for="setting3" data-title="If the machine gear wheels rotation is disturbing you - turn it off.">
+                        <input id="setting3" name="setting" class="apple-switch" type="checkbox" data-title="turned off"> machine gears - animation 
+                    </label>
+                    <label for="setting4" data-title="If you do not like engines or machine gears espetially not behind the photo of a nice landscape - turn it off.">
+                        <input id="setting4" name="setting" class="apple-switch" type="checkbox" data-title="started" checked> machine gears - display
+                    </label>
+                    <label for="setting5" id="setting5-label" data-title='You may switch the displaying of the bubble help on some page elements anytime. "Page engine room" in the setting section will be still available.'>
+                        <input id="setting5" name="setting" class="apple-switch" type="checkbox" checked> bubble help
+                    </label>
+                    <label for="setting6" data-title="It is enough to do only a little movement on the mouse wheel and you will scroll automaticaly to the next section." data-title-stat="running" class="disabled">
+                        <input id="setting6"  name="setting" class="apple-switch" type="checkbox" data-title="started"  data-title-1="started" checked disabled> smooth mouse wheel scroll
+                    </label>
+                </fieldset>
+            </div>
+        </div>      
+        <ul>
+            <li style="color:transparent; visibility:hidden;"><a href="#welcome-section" id="li0">Welcome</a></li>
+            <li><a href="#about" id="navy1-1">Welcome<!--About me--></a></li>
+            <li><a href="#skills" id="navy1-2">Skills</a></li>
+            <li><a href="#projects" id="li2">Projets</a>
+                <ol id="li2-ol">
+                    <li><a id="navy2-1" href="#freecodecamp">www.freeCodeCamp.org</a></li>
+                    <li><a id="navy2-2" href="#older">my personal projects</a></li>
+                    <li><a id="navy2-3" href="#work">something from my recent job</a></li>
+                </ol>
+            </li>
+            <li><a href="#contacts" id="li3">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <div class="repl-anchor-insteadof-everytravel-menu">
+        <div> </div><div> </div><div> </div><div> </div>
+    </div>
+
+    <!-- without gear paralax effect -->
+        <div class="logo-image-mirorred"></div>
+        <div id="para-gear" class="para-gear para-gear-false">
+            <img src="img/gear1-bw.png"  id="para-img1" class="para-img">
+            <img src="img/gear3a-bw.png" id="para-img5" class="para-img">
+            <img src="img/gear3a-bw.png" id="para-img2" class="para-img">
+            <img src="img/gear3b-bw.png" id="para-img4" class="para-img">
+            <img src="img/gear3a-bw.png" id="para-img3" class="para-img">
+            <img src="img/gear3b-bw.png" id="para-img0" class="para-img">
+            <img src="img/gear1-bw.png"  id="para-img6" class="para-img">
+        </div>
+    <!-- without gear paralax effect -->
+
+    <!-- with parallax on -->
+        <!-- <div class="parallax-layer parallax__layer--base logo-image-mirorred"></div>
+        <div id="para-gear" class="parallax-layer parallax__layer--back para-gear-false"></div>       -->
+    <!-- with parallax on -->
+  
+    <section id="welcome-section" name="A1" class="mousewheel">
+
+        <div class="offsetter">  </div>
+        <div class="logo-image" id="logo-image"></div>
+        
+        <div class="about-skills-window">
+            <article id="about">
+                <div id="reflect_div" data-state="0" tabindex="0">
+                    <h1 id="real-text">
+                        <span class="nofun-symbol-off" id="symbol1">#<div class="old-cursor"></div></span>
+                        <span class="standart" id="standart1">I am</span>
+                        <div id="chooser0" class="text-change-holder">
+                        <div id="text-stop-anim-holder"></div>
+                        <span class="nofun-symbol-off" id="symbol2">$<div class="old-cursor"></div></span><span id="color-text-holder" class="nofun">
+                            <span id="d1">D</span>
+                            <span id="a1">a</span>
+                            <div id="n1-holder" tabindex="0"><span id="n1">n</span></div>
+                            <div id="i1-holder" tabindex="0"><span id="i1">i</span></div>
+                            <span id="e1">e</span>
+                            <div id="l1-holder" tabindex="0"><span id="l1">l</span></div>
+                        </span><span class="nofun-symbol-off" id="symbol3">&nbsp;<div  class="old-cursor"></div></span></div>
+                        <span class="standart" id="standart2">Riško</span>
+                        <span class="nofun-symbol-off" id="symbol4">#<div class="old-cursor"></div></span>
+                    </h1>
+                    <h1 id="refl-text">
+                        <span class="nofun-symbol-off" id="symbol1">#<div class="old-cursor"></div></span>
+                        <span class="standart">I am</span>
+                        <div class="text-change-holder">
+                        <div id="text-stop-anim-holder"></div>
+                        <span class="nofun-symbol-off" id="symbol2">$<div class="old-cursor"></div></span><span id="color-text-holder" class="nofun">
+                            <span id="d1">D</span>
+                            <span id="a1">a</span>
+                            <div id="n1-holder" tabindex="0"><span id="n1">n</span></div>
+                            <div id="i1-holder" tabindex="0"><span id="i1">i</span></div>
+                            <span id="e1">e</span>
+                            <div id="l1-holder" tabindex="0"><span id="l1">l</span></div>
+                        </span><span class="nofun-symbol-off" id="symbol3">&nbsp;<div  class="old-cursor"></div></span></div>
+                    
+                        <span class="standart">Riško</span>
+                        <span class="nofun-symbol-off" id="symbol4">#<div class="old-cursor"></div></span>
+                    </h1>
+                </div>
+                <div id="reflect_div-ball-effect0"></div>
+                <div id="reflect_div-ball-effect1"></div>
+                <div id="reflect_div-ball-effect2"></div>
+
+                <h2>&nbsp;<span>&#9875;</span> Web developer, programer, and IT guy. </h2>
+                <p>&nbsp;<span>&#9784;</span> You may see some of my projects bellow. <a href="#projects"></a></p>
+            </article> 
+            
+            <article id="skills">
+                <div class="title-text"><span class="title-text-content">Skills</span><h2>Some of my IT skills</h2></div>
+                
+                <div id="real-refl-text-holder2">
+                    <ul class="line-holder real-text" id="real-text3">
+                        <li><i class="fab fa-html5"></i><span>HTML</span></li>
+                        <li><i class="fab fa-css3-alt"></i><span>CSS</span></li>
+                        <li><i class="fab fa-node-js"></i><span>Javascript</span></li>
+                        
+                        <li><i class="fas fa-database"></i><span>Databases</span></li>
+                        <li><i class="fab fa-php"></i><span>PHP</span></li>
+                        <li><i class="fab fa-slack-hash"></i><span>c#</span></li>
+                    </ul>
+                    <ul class="line-holder refl-text" id="refl-text3">
+                        <li><i class="fab fa-html5"></i><span>HTML</span></li>
+                        <li><i class="fab fa-css3-alt"></i><span>CSS</span></li>
+                        <li><i class="fab fa-node-js"></i><span>Javascript</span></li>
+                        
+                        <li><i class="fas fa-database"></i><span>Databases</span></li>
+                        <li><i class="fab fa-php"></i><span>PHP</span></li>
+                        <li><i class="fab fa-slack-hash"></i><span>c#</span></li>
+                    </ul>
+                </div>
+            </article>  
+
+            <article id="setting-article">
+                <div class="title-text"><span class="title-text-content">Settings</span><h2>There is the page engine room here</h2></div>
+                    
+                <div class="wraper-of-wrappers">
+                    <div id="setting-article-wrapper">
+                    <fieldset>
+                        <legend>Visual effects settings panel:</legend>
+                        <label for="setting-art0" data-title="test1" class="disabled">
+                            <span class="input-state-holder" data-title="fgfgdfonoff"></span><input id="setting-art0" name="setting" class="apple-switch disabled" type="checkbox" checked disabled> page layout and controls
+                        </label>
+                        
+                        <label for="setting-art1" data-title="test1">
+                            <span class="input-state-holder" data-title="fgfgdfonoff"></span><input id="setting-art1" name="setting" class="apple-switch" type="checkbox"> watter ripple effect
+                        </label>
+                        <label for="setting-art2" data-title="test32">
+                            <span class="input-state-holder" data-title="onoff"></span><input id="setting-art2" name="setting" class="apple-switch" type="checkbox"> parallax background effect
+                        </label>
+                        <label for="setting-art3" data-title="test32">
+                            <span class="input-state-holder" data-title-s="onoff"></span><input id="setting-art3" name="setting" class="apple-switch" type="checkbox"> machine gears - animation 
+                        </label>
+                        <label for="setting-art4" data-title="test32">
+                            <span class="input-state-holder" data-title-s="onoff"></span><input id="setting-art4" name="setting" class="apple-switch" type="checkbox" checked> machine gears - display
+                        </label>
+                        <label for="setting-art5" id="setting-art5-label" data-title="test32">
+                            <span class="input-state-holder" data-title-s="onoff"></span><input id="setting-art5" name="setting" class="apple-switch" type="checkbox" checked> bubble help
+                        </label>
+                        <label for="setting-art6" data-title="test32">
+                            <span class="input-state-holder" data-title-s="onoff"></span><input id="setting-art6" name="setting" class="apple-switch" type="checkbox"> glass effect background
+                        </label>
+                        <label for="setting-art7"  data-title="test32" class="disabled">
+                            <span class="input-state-holder" data-title-s="onoff"></span><input id="setting-art7" name="setting" class="apple-switch" type="checkbox" checked disabled> smooth mouse wheel scroll
+                        </label>
+                    </fieldset>
+                    <div id="help-article-arrow"></div>
+                </div>
+                    
+                 <div id="setting-article-text">
+                    <title>Page Manual</title>
+                    <article id="setting-help0">
+                        <h4>Page layout and controls.</h4>
+                        <div style="display: inline-block; float:right; transform:scale(0.9); margin:0; padding:0;">
+                        <div id="checkerboard" class="checkerboard">
+                            <div class="w"></div>
+                            <div class="w d" style="transform:rotateZ(-90deg);">❯❯</div>
+                            <div class="w"> </div>
+
+                            <div class="w d">❮❮</div>
+                            <div class="w"></div>
+                            <div class="w d">❯❯</div>
+
+                            <div class="w"> </div>
+                            <div class="w d" style="transform:rotateZ(90deg);">❯❯</div>
+                            <div class="w"> </div>
+                        </div>
+                        </div>
+                        <p><u>Page layout</u> is based on the checkerboard structure: there are 3 vertical 
+                            sections and each of them has its own horizontal plane with more sections. 
+                            The movement through the page could be controlled in these several ways.
+                            </p>
+                        <p><img src="img/mousewheel-ico2.png" class="mousewheel-ico">
+                            1. Please dont forget to try the "<u>sensitive mouse wheel control</u>" 
+                            I mentioned above. It is simply perfect. But for some effect is better 
+                            to use the standart scroll bar for vertical movement - this is the case 
+                            of the Parallax effect for example. 
+                        </p>
+                        <div style="display: inline-block; float:right; margin:0; padding:0; transform:scale(0.9);">
+                            <div id="checkerboard2" class="checkerboard2">
+                                <div ></div>
+                                <div class="d1"><span style="transform:rotateZ(-90deg);">❯</span></div>
+                                <div > </div>
+
+                                <div class="w1">❮</div>
+                                <div class="q1"> </div>
+                                <div class="w1">❯</div>
+
+                                <div > </div>
+                                <div class="d1"> <span style="transform:rotateZ(90deg);">❯</span></div>
+                                <div > </div>
+                            </div>
+                        </div>
+                        <p>
+                            2. Especially in order to ensure a comfortable movement in the horizontal direction
+                            there are the <u>side arrows control</u> elements here. In the case that next page is available 
+                            the arrow will be visible. If you are at the begining or end of the horizontal section 
+                            the arrow will automaticaly not be displayed. And vice versa. 
+                            Small pictogram will explain it best. 
+                        </p>
+                        <p>
+                            3. And finally you could anytime use the fixed <u>menu bar</u> on the top of the displayed area. 
+                            You reach every corner of this page in very comfortable way when you use it.
+                        </p>
+                    </article>
+                    <article id="setting-help1">
+                        <h4>Watter ripples effect</h4>
+                        <p>
+                            A nice "watter surface ripple" effect builded on jQuery framework by 
+                            <a href="https://github.com/sirxemic/jquery.ripples" target="_blank">Pim Schreurs / Sirxemic</a> from Netherlands.
+                            Many thanks to him this good work - I like it a lot.
+                            There is the link on the demo page for this effect and link on his GitHub here:
+                            <a href="http://sirxemic.github.io/jquery.ripples/" target="_blank">http://sirxemic.github.io/jquery.ripples/</a>
+                            
+                        </p>
+                        <p>Please note this is one from the effect that are using a lot of computing power. 
+                            So if you feel that your device performance is going down the hill, 
+                            try to turn this effect off. 
+                        </p>
+                    </article>
+                    <article  id="setting-help2"> 
+                        <h4>Parralax background effect</h4>
+                        <p>Parallax is a difference in the apparent position of objects 
+                            in order by the point of view from which they are observed. 
+                        </p>
+                        <p>The imitation of this real phenomenon is an great opportunity 
+                            to achieve a look of spatial depth. You may look how it works 
+                            here on this page and compare with the standart 2D design.
+                        </p>
+                        <p> This solution is based on pure CSS witch is using the 
+                            transformation on the Z-axis with 3D perspective property. 
+                        </p>
+                        <p> Despite it is a pure CSS solution, that manipulation with more 
+                            elements in 3D  perspective is really not very gentle to the 
+                            system resources. That is why some other effect will be turned off 
+                            (watter surface ripple) if parallax is started. 
+                            (But anytime you can start it all together if you want. It is depending on the 
+                            hardware, system load, free system resources... Have to try.  )
+                            </p>
+                    </article>
+                    <article  id="setting-help3"> 
+                        <h4>Machine gears animation</h4>
+                        <p>If the machine gear wheels rotation is disturbing you - turn it off.</p>
+                    </article>
+                    <article  id="setting-help4"> 
+                        <h4>Machine gears display</h4>
+                        <p>
+                            If you do not like engines or machine gears espetially not behind 
+                            the photo of nice landscape - turn it off.
+                            (Me also offten not, so I am using this possibility.)
+                        </p>
+                        <br /><br /><br /><br /><br /><br />
+                    </article>
+                    <article  id="setting-help5"> 
+                        <h4>Bubble help and page guide</h4>
+                        <p>
+                            You may switch the displaying of the bubble help on some page elements anytime. 
+                            "Page engine room" in the setting section will be still available.
+                        </p>
+                        <p>
+                            If the "initial page guide sequence" is still running, please turn it off
+                            by it own switch in the left top corner of the page. 
+                            When the sequence goes to finish properly, it will destroy / disable it self 
+                            automatically.
+                        </p>
+                        <p>Please note, that in order to a visual ilustration of some features  
+                            some bubbles will still stay active here in this setting section 
+                            or in the setting panel.  
+                        </p>
+                    </article>
+                    <article  id="setting-help6"> 
+                        <h4>Glass effect on background</h4>
+                            <p>
+                                Will turn on this interesting background glass effect on whole page for 60 second.
+                            </p> 
+                            <p> Only the "setting section - page engine room" has started this effect on default.
+                                Other sections have not "glass background" turned on. You may change it for 60 second.  
+                            </p>
+                            <p> (If you want watch and compare the parallax transition for example...)</p>
+                            <br />
+                        </article>
+                    <article id="setting-help7"> 
+                        <h4>Sensitive mouse wheel control</h4>
+                        <p>
+                        <img src="img/mousewheel-ico2.png" class="mousewheel-ico">
+                        I had got to have it here. I just love it. 
+                        It is enough to do only a little movement on the mouse wheel and you will scroll 
+                        automaticaly to the next section. I think this is this the pinnacle 
+                        of luxury today. Rolls Royce is only a rednecks
+                        carriage next to this... :)  
+                        </p>
+                        <p>
+                            But for some effect is still better to use the standart scroll bar 
+                            for vertical movement - this is the case of the Parallax effect for example. 
+                        </p>
+                    </article>
+
+                    </div>
+                </div> 
+                <div id="setting-transformer"></div>
+            </article>
+
+            <!-- arrow/radio navigation 1 TOP -->
+            <div class="slide-navy" id="navy-1">
+                <div class="slide-holder-left slide-arrow"><a href="#about" class="inactive" id="navy1-left">&#10216;</a></div>
+                
+                <div class="slide-holder-center">
+                    <span class="slide-top slide-arrow"><a href="#projects" class="inactive" id="navy1-top">&#10216;</a></span>
+                </div>
+                <div class="slide-holder-right slide-arrow"><a href="#skills" class="" id="navy1-right">&#10217;</a></div>
+            </div>
+            <!-- arrow/radio navigation 1 TOP END-->
+        
+        </div> 
+        <div id="wellcome-shadow-holder"></div>
+        <!-- arrow/radio navigation 1 BOTTOM -->
+        <div class="slide-radio-bottom1">
+            <span class="slide-radio" tabindex="0" id="navy1-RadioButtons">
+                <a href="#about" id="navy1-radio0" class="dot-symbol"></a>
+                <a href="#skills" id="navy1-radio1" class="circle-symbol"></a>
+                <a href="#setting-article" id="navy1-radio2" class="circle-symbol"></a>
+            </span>
+        </div>    
+        <div class="slide-holder-bottom1">
+            <span class="slide-bottom1 slide-arrow">
+                <a href="#projects" class="" id="navy1-bottom">&#10217;</a>
+            </span>
+        </div>
+        <!-- arrow/radio navigation 1 BOTTOM END-->     
+    </section>
+
+    <section id="projects" name="A2" class="mousewheel" tabindex="0">
+        <div id="projects-section-holder"> 
+            <div class="title-text">
+                <span class="title-text-content">Projects</span>
+            </div> 
+
+            <article id="freecodecamp">
+                <h2>© Created for <a href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a></h2>   
+            
+            <div class="project-holder">
+                <div class="project project0" id="project1" data-margin="1" tabindex="0">
+                <img src="img/Screenshot_2020-11-14 Tribute page - AllForJan.png" alt="Printscreen from project for www.freecodecamp.org: Tribute page">
+                <a href="https://danieeelll.github.io/1-Tribute-Page/index.html" target="_blank" class="project-tile">Tribute page</a>  
+                </div>
+                <div class="project project1" id="project2" data-margin="2" tabindex="0">
+                <img src="img/Screenshot_2020-11-14 Survey form.png" alt="Printscreen from project for www.freecodecamp.org: Survey Form">
+                <a href="https://danieeelll.github.io/2-Survey-Form/index.html" target="_blank" class="project-tile">Simple survey form</a>  
+                </div>
+                <div class="project project2" id="project3" data-margin="3" tabindex="0">
+                <img src="img/Screenshot_2020-11-14 Product landing page - mitre saw.png" alt="Printscreen from project for www.freecodecamp.org: Product landing page">
+                <a href="https://danieeelll.github.io/3-Product-Landing-Page/index.html" target="_blank" class="project-tile">Product landing page</a>
+                </div>
+                <div class="project project3"  id="project4" data-margin="4" tabindex="0">
+                <img src="img/Screenshot_2020-11-14 Technical documentation - CSS FLEX.png" alt="Printscreen from project for www.freecodecamp.org: Technical documentation">
+                <a href="https://danieeelll.github.io/4-Technical-Documentation/index.html" target="_blank" class="project-tile">Technical documentation</a>
+                </div>
+            </div>
+            </article>
+
+            <article id="older">
+                <h2>Some of my earlier works <a href="github">On Git Hub</a> </h2>
+            
+            <div class="project-holder">
+                <div class="project project0" id="project1" data-margin="1" tabindex="0">
+                <a href="https://danieeelll.github.io/1-Tribute-Page/index.html" target="_blank" class="project-tile">Tribute page</a>
+                <img src="img/Screenshot_2020-11-14 Tribute page - AllForJan.png" alt="Printscreen from project for www.freecodecamp.org: Tribute page">
+                </div>
+                <div class="project project1" id="project2" data-margin="2" tabindex="0">
+                <a href="https://danieeelll.github.io/2-Survey-Form/index.html" target="_blank" class="project-tile">Simple survey form</a>
+                <img src="img/Screenshot_2020-11-14 Survey form.png" alt="Printscreen from project for www.freecodecamp.org: Survey Form">
+                </div>
+
+                <div class="project project2" id="project3" data-margin="3" tabindex="0">
+                <a href="https://danieeelll.github.io/3-Product-Landing-Page/index.html" target="_blank" class="project-tile">Product landing page</a>
+                <img src="img/Screenshot_2020-11-14 Product landing page - mitre saw.png" alt="Printscreen from project for www.freecodecamp.org: Product landing page">
+                </div>
+                
+                <div class="project project3"  id="project4" data-margin="4" tabindex="0">
+                <a href="https://danieeelll.github.io/4-Technical-Documentation/index.html" target="_blank" class="project-tile">Technical documentation</a>
+                <img src="img/Screenshot_2020-11-14 Technical documentation - CSS FLEX.png" alt="Printscreen from project for www.freecodecamp.org: Technical documentation">
+                </div>
+            </div>
+            </article>
+
+            <article id="work">
+                <h2>Some of my earlier works <a href="github">On Git Hub</a> </h2>
+            
+            <div class="project-holder">
+                <div class="project project0" id="project1" data-margin="1"  tabindex="0">
+                <a href="https://danieeelll.github.io/1-Tribute-Page/index.html" target="_blank" class="project-tile">Tribute page</a>
+                <img src="img/Screenshot_2020-11-14 Tribute page - AllForJan.png" alt="Printscreen from project for www.freecodecamp.org: Tribute page">
+                </div>
+                <div class="project project1" id="project2" data-margin="2"  tabindex="0">
+                <a href="https://danieeelll.github.io/2-Survey-Form/index.html" target="_blank" class="project-tile">Simple survey form</a>
+                <img src="img/Screenshot_2020-11-14 Survey form.png" alt="Printscreen from project for www.freecodecamp.org: Survey Form">
+                </div>
+
+                <div class="project project2" id="project3" data-margin="3"  tabindex="0">
+                <a href="https://danieeelll.github.io/3-Product-Landing-Page/index.html" target="_blank" class="project-tile">Product landing page</a>
+                <img src="img/Screenshot_2020-11-14 Product landing page - mitre saw.png" alt="Printscreen from project for www.freecodecamp.org: Product landing page">
+                </div>
+                
+                <div class="project project3"  id="project4" data-margin="4"  tabindex="0">
+                <a href="https://danieeelll.github.io/4-Technical-Documentation/index.html" target="_blank" class="project-tile">Technical documentation</a>
+                <img src="img/Screenshot_2020-11-14 Technical documentation - CSS FLEX.png" alt="Printscreen from project for www.freecodecamp.org: Technical documentation">
+                </div>
+            </div>
+            </article>
+        
+            <article id="work2">
+                <h2>Some of my earlier works <a href="github">On Git Hub</a> </h2>
+            <div class="project-holder">
+                <div class="project project0" id="project1" data-margin="1" tabindex="0">
+                <a href="https://danieeelll.github.io/1-Tribute-Page/index.html" target="_blank" class="project-tile">Tribute page</a>
+                <img src="img/Screenshot_2020-11-14 Tribute page - AllForJan.png" alt="Printscreen from project for www.freecodecamp.org: Tribute page">
+                </div>
+                <div class="project project1" id="project2" data-margin="2" tabindex="0">
+                <a href="https://danieeelll.github.io/2-Survey-Form/index.html" target="_blank" class="project-tile">Simple survey form</a>
+                <img src="img/Screenshot_2020-11-14 Survey form.png" alt="Printscreen from project for www.freecodecamp.org: Survey Form">
+                </div>
+
+                <div class="project project2" id="project3" data-margin="3" tabindex="0">
+                <a href="https://danieeelll.github.io/3-Product-Landing-Page/index.html" target="_blank" class="project-tile">Product landing page</a>
+                <img src="img/Screenshot_2020-11-14 Product landing page - mitre saw.png" alt="Printscreen from project for www.freecodecamp.org: Product landing page">
+                </div>
+                
+                <div class="project project3"  id="project4" data-margin="4" tabindex="0">
+                <a href="https://danieeelll.github.io/4-Technical-Documentation/index.html" target="_blank" class="project-tile">Technical documentation</a>
+                <img src="img/Screenshot_2020-11-14 Technical documentation - CSS FLEX.png" alt="Printscreen from project for www.freecodecamp.org: Technical documentation">
+                </div>
+            </div>
+            </article>
+
+            <!-- arrow/radio navigation 2 TOP -->
+            <div class="slide-navy" id="navy-2">
+                <div class="slide-holder-left slide-arrow"><a href="#projects" class="inactive" id="navy2-left">&#10216;</a></div>
+                
+                <div class="slide-holder-center">
+                    <span class="slide-top slide-arrow"><a href="#about" class="" id="navy2-top">&#10216;</a></span>
+                </div>
+                <div class="slide-holder-right slide-arrow"><a href="#older" class="" id="navy2-right">&#10217;</a></div>
+            </div>
+            <!-- arrow/radio navigation 2 TOP END-->
+
+        </div>
+        <div id="projects-shadow-holder"></div>
+        <!-- <div id="projects-shadow-holder2"></div> -->
+    
+        <!-- arrow/radio navigation 2 BOTTOM -->
+        <div class="slide-radio-bottom1">
+            <span class="slide-radio" tabindex="0" id="navy2-RadioButtons">
+                <a href="#freecodecamp" id="navy2-radio0" class="dot-symbol"></a>
+                <a href="#older" id="navy2-radio1" class="circle-symbol"></a>
+                <a href="#work" id="navy2-radio2" class="circle-symbol"></a>
+            </span>
+        </div>    
+        <div class="slide-holder-bottom1">
+            <span class="slide-bottom1 slide-arrow"><a href="#contacts" id="navy2-bottom">&#10217;</a></span>
+        </div>
+        <!-- arrow/radio navigation 2 BOTTOM END -->
+    </section>
+
+    <section id="contacts" name="A3" class="mousewheel">
+        <div class="color-optimizer"> </div>
+    
+        <div class="title-text">
+            <span class="title-text-content">Contacts</span>
+            <h2>You can catch me here</h2>
+        </div>
+    
+        <h3>Please feel absolutely free to contact me.</h3>
+        
+        <div id="real-refl-text-holder">
+            <div class="line-holder real-text" id="real-text1">
+
+                <li id="con0"><a href="mailto:daniel.risko@gmail.com" data="e-mail" data-value="daniel.risko@gmail.com" alt="daniel.risko@gmail.com"><i id="c0" class="fas fa-at"></i><span>e-mail</span></a></li>
+                <li id="con1"><a href="" target="_blank" data-value="I am working on it :)" data="soc.networks" alt="One day I will also be on some social networks!"><i id="c1" class="fab fa-facebook-square"></i><span>Facebook</span></a></li>
+                <li id="con2"><a href="" target="_blank" data-value="I am working on it :)" data="soc.networks" alt="I am serious - it is necessary for employers today."><i id="c2" class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
+                <li id="con3"><a href="https://github.com/danieeelll" data="projects" data-value="https://github.com/danieeelll" id="profile-link" alt="Thanks for advice with Git Hub - I am there already;)" target="_blank"><i id="c3" class="fab fa-github-square"></i><span>Git Hub</span></a></li>
+                <li id="con4"><a data="telephone" data-value="(00421)911 / 574 578" alt="(00421)911 / 574 578"><i id="c4" class="fas fa-phone-square-alt"></i><span>call/sms</span></a></li>
+                <li id="con5"><a href="https://www.freecodecamp.org/danieeel" data="curiculum" data-value="https://www.freecodecamp.org/danieeel" target="_blank" id="profile-link"><i id="c5"class="fab fa-free-code-camp"></i><span>freeCodeCamp</span></a></li> 
+            </div>
+            <div class="line-holder refl-text" id="refl-text1">
+                <li id="con0"><a href="mailto:daniel.risko@gmail.com" data="email" alt="daniel.risko@gmail.com"><i id="c0" class="fas fa-at"></i><span>e-mail</span></a></li>
+                <li id="con1"><a href="" target="_blank" data="soc.networks" alt="One day I will also be on some social networks!"><i id="c1" class="fab fa-facebook-square"></i><span>Facebook</span></a></li>
+                <li id="con2"><a href="" target="_blank" data="soc.networks" alt="I am serious - it is necessary for employers today."><i id="c2" class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
+                <li id="con3"><a href="https://github.com/danieeelll" target="_blank" alt="Thanks for advice with Git Hub - I am there already;)"><i id="c3" class="fab fa-github-square"></i><span>Git Hub</span></a></li>
+                <li id="con4"><a data="tel" alt="(00421)911 / 574 578"><i id="c4" class="fas fa-phone-square-alt"></i><span>call/sms</span></a></li>
+                <li id="con5"><a href="https://www.freecodecamp.org/danieeel" target="_blank" id="profile-link"><i id="c5" class="fab fa-free-code-camp"></i><span>freeCodeCamp</span></a></li> 
+            </div>
+        </div>
+        
+        <div class="contacts-prompt">
+            <div> </div>
+            <input type="text" id="text-for-clipboad" name="text-for-clipboad" value="...">
+            <button id="copy-to-clipboad">copy to clipboad</button>
+            <div id="copyContactsPrompt" class="hp-after"> </div>
+        </div>
+
+        <!--<div id="footer-img-holder" tabindex="0">
+            <img src="forest.jpg" alt="mystic night forest" class="img-real">
+            <img src="forest.jpg" alt="mystic night forest" class="img-reflect" >
+        </div>--> 
+
+        <!-- arrow/radio navigation 3 -->
+        <div class="slide-navy" id="navy-3">
+            <div class="slide-holder-left slide-arrow"><a href="" class="inactive" id="navy3-left">&#10216;</a></div>
+            <div class="slide-holder-center">
+                <span class="slide-top slide-arrow"><a href="#projects" class="" id="navy3-top">&#10216;</a></span>
+            </div>
+            <div class="slide-holder-right slide-arrow"><a href="" class="inactive" id="navy3-right">&#10217;</a></div>
+        </div>
+        <!-- arrow/radio navigation 3 END-->
+       
+         <!-- arrow/radio navigation 3 BOTTOM -->
+         <div class="slide-radio-bottom1">
+            <span class="slide-radio" tabindex="0" id="navy3-RadioButtons"></span>
+        </div>
+        <div class="slide-holder-bottom1">
+            <span class="slide-bottom1 slide-arrow"><a href="#welcome-section" title="home" class="" id="navy3-bottom">&#10216;</a></span> 
+        </div>
+        <!-- arrow/radio navigation 3 BOTTOM END-->
+    <!-- </div> -->
+    </section>
+
+    <footer>
+        <div class="line-holder real-text" id="real-text2">
+            <p>© Created for <a href="https://www.freecodecamp.com/" target="_blank">www.freecodecamp.org<i class="fab fa-free-code-camp"></i></a></p>
+        </div>
+        <div class="line-holder refl-text" id="refl-text2">
+            <p>© Created for <a href="https://www.freecodecamp.com/" target="_blank">www.freecodecamp.org<i class="fab fa-free-code-camp"></i></a></p>
+        </div>
+    </footer>
+
+<script lang="text/javascript" src="js/mouse-scroll-a.js"></script>
+<script lang="text/javascript" src="javascript.js"></script>
+
+</body>
+</html>
