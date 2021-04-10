@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="cp1250"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+  <head>
+    <meta name="generator" content="PSPad editor, www.pspad.com" />
+    <meta http-equiv="content-type" content="text/html; charset=cp1250" />
+    <title>Prezentácia Kníhkupectvo: uvítací list</title>
+
+<script language="JavaScript">
+function zmen(a){
+  var obrazok = document.getElementById('nahlad'+a).src;
+  var text    = document.getElementById('text'+a).innerHTML;
+  document.getElementById('velky').src = obrazok;
+  document.getElementById('popis').innerHTML = text;  
+  }
+</script>
+<style>
+  h1{ color: gold; background-color: darkblue; text-align: center; }
+</style>
+   
+</head>
+<body onload="zmen('1')">
+
+<a href="../index.html"> &uarr; o úroveň vvyššie </a>
+<h1>Prezentácia Kníhkupectvo: uvítací list</h1> 
+
+1. <img id="nahlad1" src="administracia-uvitaci-list1.jpg" alt="maly nahlad" width="150" onclick="zmen('1')" border="1" align="texttop" />
+
+<div id="text1" style="display: none;"> &bull; z obyčajného textového súboru, vytvorí zaujímavú hračku - s minimom námahy užívateľa. <br />
+                                        &bull; ( PHP, HTML, Javascript )</div>
+
+<hr />
+<div id="popis"> </div>
+<br />
+<img id="velky" src="" alt="velka ukazka" style="border: 2px solid red;" />
+
+</body>
+</html>
