@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="cp1250"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+  <head>
+    <meta name="generator" content="PSPad editor, www.pspad.com" />
+    <meta http-equiv="content-type" content="text/html; charset=cp1250" />
+    <title>Prezentácia: viahistoria - užívateľská časť</title>
+
+<script language="JavaScript">
+function zmen(a){
+  var obrazok = document.getElementById('nahlad'+a).src;
+  var text    = document.getElementById('text'+a).innerHTML;
+  document.getElementById('velky').src = obrazok;
+  document.getElementById('popis').innerHTML = text;  
+  }
+</script>
+<style>
+  h1{ color: gold; background-color: darkblue; text-align: center; }
+</style>
+   
+</head>
+<body onload="zmen('1')">
+
+<a href="../index.html"> &uarr; o úroveň vvyššie </a>
+<h1>Prezentácia: viahistoria - užívateľská časť</h1> 
+
+1. <img id="nahlad1" src="viahistoria1.jpg" alt="maly nahlad" width="150" onclick="zmen('1')" border="1" align="texttop" />
+2. <img id="nahlad2" src="viahistoria2.jpg" alt="maly nahlad" width="150" onclick="zmen('2')" border="1" align="texttop" />
+3. <img id="nahlad3" src="viahistoria3.jpg" alt="maly nahlad" width="150" onclick="zmen('3')" border="1" align="texttop" />
+4. <img id="nahlad4" src="viahistoria4.jpg" alt="maly nahlad" width="150" onclick="zmen('4')" border="1" align="texttop" />
+5. <img id="nahlad5" src="viahistoria5.jpg" alt="maly nahlad" width="150" onclick="zmen('5')" border="1" align="texttop" />
+
+<div id="text1" style="display: none;"> &bull; <b>katalóg stránok www.viahistoria.sk</b>, v databáza obsahuje viac ako 14000 liniek na 95% i s grafickým náhľadom webu.<br />
+                                        &bull; Návštevníkov tvoria najmä školáci a stredoškoláci - tomu by chcela odpovedať i nekonvenčna "tvorivá" grafika webu.<br /> 
+                                        &bull; Po technickej stránke môže byť zaujímavé vlastné riešenie vyhľadávania v katalógu </div>
+<div id="text2" style="display: none;"> &bull; Vlastné "rozšírené" vyhľadávanie</div>
+<div id="text3" style="display: none;"> &bull; grafické náhľady webov vo výsledku vyhľadávania stále ešte nie sú "bežné" </div>
+<div id="text4" style="display: none;"> &bull; Latinský slovník - ťaží najmä z existencie onoho spomínaného vyhľadávania. </div>
+<div id="text5" style="display: none;"> &bull; výpis liniek... </div>
+
+<hr />
+<div id="popis"> </div>
+<br />
+<img id="velky" src="" alt="velka ukazka" style="border: 2px solid red;" />
+
+</body>
+</html>
