@@ -1,0 +1,122 @@
+html { font-family: "Times New Roman", Times, serif; font-size:14px; }
+body {text-align:left; margin:15px 10px 10px 30px; background-color:#303030; color:white; }
+
+b { font-size:14px; color:lightgrey;  }
+.b1  { font-size:14px; color:red;  }
+.b0  { font-size:14px; color:green;  }
+a { font-size:12px; font-weight:bold; color:lightgrey; }
+p { font-size:14px; font-weight:bold; color:#FF9900; line-height:22px;}
+
+strong { font-size:22px; font-weight: bold; color:#FF9900; }
+input{ color:black; background-color:lightgrey; margin:2px 4px 2px 4px; }
+
+#strana_top   { width:1452px; min-height: 95px; margin-bottom:4px; border:1px solid #FB9D00; background-color:black; }
+#strana_stred { width:1454px; min-height: 744px; /*border:1px solid red;*/ background-color:#303030; margin-bottom:2px; color:white; }
+#strana_lavy  { width:250px;  min-height: inherit; border:1px solid #FB9D00; background-color:black;   float:left; /*font-size:12px;*/ float:left; /*overflow:auto;*/ }
+#strana_hlavny{ width:796px;  min-height: inherit; border:1px solid #FB9D00; background-color:black;   margin:0px 0px 4px 4px; vertical-align:top; float:left; /*float:left;*/ }
+#strana_pravy { width:394px;  min-height: inherit; border:1px solid #FB9D00; background-color:#606060;   margin:0px 0px 4px 4px; vertical-align:top; float:left; /*float:left;*/ }
+#strana_spod  { width:1452px; min-height: 24px; border:1px solid #FB9D00; background-color:black; margin:6px 0px 0px 0px; max-height:24px; color:white; text-align:center; }
+
+.lowgo { margin:10px; float:left; }
+.lowgo1{ margin:65px 10px 5px 5px; width:300px; float:right; text-align:right; }
+
+/* Lavy Ram */
+.adresrac1{ display:block;        font-size:12px; font-weight:bold; color:black; width:235px; /*border:1px solid goldenrod;*/ overflow:hidden; margin:3px 0px 0px 3px; }
+.adresrac2{ display:inline-block; font-size:12px; font-weight:bold; color:black; width:235px; /*background-color:goldenrod;*/ overflow:hidden; }
+.suborac1 { display:inline;       color:lightgrey; font-size:12px;  /*font-weight:bold;*/  white-space:nowrap; margin:0px 0px 0px 5px;  }
+.obsah_adresara1{ display:block;  margin:0px 0px 2px 0px; /*border:1px solid red;*/ overflow:hidden; }
+.stat0{ display:inline-block; cursor:pointer; text-align:center; margin:1px; border:1px solid black; font-size:12px; font-weight:bold; width:16px; height:16px; }
+.stat1{ cursor:pointer; text-decoration:underline; color:black; }
+/* Lavy Ram - end */
+
+.stlac{ width:100px; height:100px; background-color: #FFC050; border:1px solid white; font-size:12px; font-weight:bold; color:black; margin:3px 0px 3px 3px; cursor:pointer;  }
+.stlacFunc{ float: left; background-color: #FFC050; border:1px solid lightgrey; font-size:12px; font-weight:bold; color:black; margin:2px 2px 2px 2px; }
+/* obsah */
+.nadpis2 { background-color: #FFA000; color:black; font-size:14px; font-weight:bold; padding: 2px;}
+.nadpis0 { background-color: #FFA000; color:black; width:782px; font-size:14px; font-weight:bold; padding: 2px;}
+.nadpis1 { background-color: #FFC050; color:black; width:782px; font-size:12px; font-weight:bold; padding: 2px;}
+
+#obsah0, #obsah1, #obsah2 { display:block; border:1px solid #FFA000; margin:4px; } 
+#obsah3 { display:block; border:1px solid #FFA000; margin:4px;}
+#obsah5 { display:block; border:1px solid #FFA000; margin:4px; }
+
+/* ***** PHP skript EDIT FOLDER ***** */
+.vFolder  { /*border:1px solid red;*/ margin:1px 1px 1px 26px; font-weight:bold; color:black;  }
+.vFolder1 { /*border:1px solid black;*/ margin:1px 0px 0px 1px; }
+.vFolder2 { margin:1px 0px 0px 1px; }
+
+.Hid1 {  border:1px solid red; }
+.Hid2 { display:inline; width:300px; border:1px solid green; }
+
+.vOtvor0  { background-color:khaki; float:left; border:1px dotted yellow; width:20px;  margin:2px 0 0 2px; }
+.vOtvor1  { float:left; border:1px solid black; width:18px; text-align:center; margin:2px 0 0 2px; }
+.vOtvor2  { background-color:khaki; display:inline-block; border:1px solid black; width:18px; text-align:center; margin:2px 2px 2px 2px; }
+.vOtvor3  { display:inline-block; width:350px; }
+
+.vOtvor4  { display:inline-block; border:1px solid black; background-color:orangered; width:18px; text-align:center; margin:2px 2px 2px 2px; }
+.vOtvor5  { display:inline-block; border:1px solid black;  }
+.vOtvor5 button { background-color:orangered; display:inline-block; border:1px solid black; }
+
+.vOtvor6  { background-color:khaki; display:inline-block; border:1px solid black; width:18px; text-align:center; margin:2px 2px 2px 30px; }
+.vOtvor7  { display:inline-block; width:350px; }
+
+/* **** left FOLDERS ***** */
+.lFolder { /*border:1px solid red;*/ margin:0 0 0 -20px; width:266px; font-weight:bold; color:black; overflow:hidden; float:left;}
+.lFolder0 { /*border:1px solid red;*/ margin: 0px 0px 1px 24px; width:250px;  }
+.lFolder1 { /*border:1px solid black;*/ margin:0px 0px 1px 0px;  width:250px; cursor:pointer; }
+.lFolder2 { margin:0px 0px 0px 0px; width:250px; }
+
+.lOtvor0  { background-color:none; float:left; border:1px dotted yellow; width:18px; height:18px;  margin:1px 8px 1px 1px; }
+.lOtvor1  { text-align:center;     float:left; border:1px solid black;   width:18px; height:18px;  margin:1px 8px 2px 1px;  }
+.lOtvor2  { display:inline-block; }
+.lFolder a {font-size:14px; font-weight:bold; color:black;} 
+
+/* ********** VirtualObsah - main vypisy ********** */
+#virtual_obsah2 { margin:2px 2px 20px 2px; /*border:1px solid grey;*/ background-color:#101010; height:700px; overflow:auto;  }
+
+.mainFolder   { width:100%; font-size:12px; font-weight:bold; color:black; overflow:auto; }
+.mainFolder0  { display:inline-block; clear:both; width:99%; border:1px solid orange; margin:2px 2px 2px 2px; }
+.mainFolder1  { /*display:block;*/ clear:both; margin:2px; padding-left:10px; }
+.mainFolder2  { /*display:inline;*/ float:left; width:100px; min-height:100px; color:white; background-color:#606060; /* background-color: #FFC050;*/ 
+                font-weight:normal; border:1px solid gray; margin:2px 0px 4px 4px; padding:1px; overflow:hidden; z-index:100; }
+.mainFolder3  {  background-color:silver; /*#303030*/ border:1px solid gray; color:white; width:99%; min-height:100px; margin:-5px 4px 4px 4px; z-index:-1; }  /* skryty - rozbali to JS a zobrazi podrobnosti */
+
+.mainZaznam0  { margin:2px; color:black;}   
+
+.mainZaznam1  { margin:2px; color:lightgrey;}   
+.mainZaznam1 a { font-size:14px; font-weight:bold; color:white;} 
+
+
+
+/*
+.mainZaznam3  { margin:2px 4px 2px 4px; color:gray;}   
+.mainZaznam3 .v2 a{ font-size:14px; font-weight:bold; color:gray;} 
+*/
+
+.v0,.v1,.v2,.v3,.v4,.v5,.v6 { display:inline-block; /*border:1px solid white;*/ overflow:auto;   }
+.v0 { /*float:right;*/ margin-right:2px; }
+.v1 { width:18px; text-align:center; border:1px dotted #303030; cursor:pointer;  }
+.v2 { /*width:700px;*/ vertical-align:baseline; float:right; }
+.v_skryte {display:none;}
+.v3 { /*width:130px;*/ }
+.v4 {/* width:130px;*/ }
+.v5 { /*width:70px; text-align:right; */}
+.v6 { /*width:60px; text-align:right;*/ }
+
+/* ******************** FORMular zmien a new - papravo ******************** */
+.uprav1 {  border:1px solid gray; margin:2px; }
+.uprav1 input, textarea{ background-color:whitesmoke; color:black;  border:1px solid #303030; }    
+.uprav1 input:disabled, textarea:disabled, .gombiky:disabled{ background-color:silver; color:#606060; border:1px solid #404040; }
+
+.uprav1 .gombiky{ height:22px; font-weight:bold; border:1px solid black; background-color:orange; color:black; cursor:pointer; }
+/*#gombiky .gombiky{ background-color:silver; color:gray; cursor:auto;  }  */
+
+.f0 { display:inline-block; width:70px; border:1px dotted white; }
+
+#upr0 { width:20px; }
+#upr1 { width:20px; }
+#upr2 { width:300px; }
+#upr3 { width:300px; }
+#upr4 { width:380px; height:60px; }
+
+.vNovy1 { background-color:khaki; border:1px solid black; font-size:14px; width:20px; height:20px; cursor:pointer; text-align:center; font-weight:bold; float:right; margin:2px; vertical-align:baseline; }
