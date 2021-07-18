@@ -541,10 +541,9 @@
       (any version and any device)
      */
         #navbar ul li:before {
-            
+            transform:scale(1.5);   
             content: " ⎈ "; 
-            color:blue;
-            background-color: gold;
+            /*color:blue;*/
             
         }
     }
@@ -556,10 +555,9 @@
 { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
 
     #navbar ul li:before {
-            
+        transform:scale(1.5);       
         content: " ⎈ "; 
-        color:blue;
-        background-color: gold;
+        /*color:blue;*/
         
     }
 }}
@@ -569,10 +567,9 @@
 { @supports (-webkit-appearance:none) and (not (stroke-color:transparent)) {
 
     #navbar ul li:before {
-            
+        transform:scale(1.5);    
         content: " ⎈ "; 
-        color:blue;
-        background-color: gold;
+        /*color:blue;*/
         
     }
 }}
@@ -582,8 +579,8 @@
         #navbar ul li:before {
             
             content: " ⎈ "; 
-            color:blue;
-            background-color: gold;
+            transform:scale(1.5);
+            /*color:blue;*/
             
         }
     }}
