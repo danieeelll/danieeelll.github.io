@@ -47,6 +47,9 @@
     --background-ms-sec3: ms-linear-gradient(-150deg, hsl(200, 15%, 8%) -10%, hsl(200, 20%, 16%), hsl(200, 20%, 32%), hsl(200, 25%, 64%), hsl(44, 100%, 88%) 110%);
 
     --section-shadow: 5px 5px 30px 15px dimgray;
+
+    --descr-after-marright:0%;
+    /*--descr-after-martop:-65%;*/
    
     scroll-behavior: smooth;
 }
@@ -416,9 +419,15 @@ p {
 
     .project a {
         font-size: 0.75em;
+        width: 100%;
         height: 1.25em;
         margin-top:0.25em;
+        margin-left:0em;
         color: var(--sharped-goldenrod);
+        z-index: auto;
+        opacity: 1;
+        /*transition: all 250ms;*/
+        text-align: center;
     }
 
     #projects h2 a {
@@ -426,6 +435,8 @@ p {
     }
 
     .project {
+        /*position: relative;*/
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -435,15 +446,58 @@ p {
         width: 334px;
         outline: none;
         z-index: 1;
+
+        /*border: 1px solid red;*/
         /*filters will start JS on pageload */
     }
 
+ /* test 20.apr.2021 */   
+    #proj-img1{ 
+        background-image: url('img work/viahistoria-80-final1080.png');
+        background-repeat: no-repeat;
+        background-size:cover;
+        /*background-position-y: 0.75em;*/
+    }
+    #proj-img2{ 
+        background-image: url('img work/vialitera-100-final1080.png');
+        background-repeat: no-repeat;
+        background-size:cover;
+    
+    }
+    #proj-img3{ 
+        background-image: url('img work/backend3-62.png');
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    #proj-img4{ 
+        background-image: url('img work/kitchen-90-final1080.png');
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+/* test end 20.apr.2021 */ 
+ 
+    .img-project-980{
+        border: 1px solid red;
+        display:none;
+    }
+    .img-project-1920{
+        border: 1px solid green;
+        display:block;
+    }
+    
+    .img-project-2560{
+        border: 1px solid blue;
+        display:none;
+    }
+
     .project img {
+        /*width: 283px;*/
+        /*width:14.5em;*/
         width: 285px;
-        height: 190px;
+        max-height: 100%; 
         font-size: 0.65em;
         transform: scale(1.25);
-        transition: transform 1.75s;
+        transition: transform 1.75s; 
     }
 
     .project:hover{
@@ -460,6 +514,12 @@ p {
         z-index: 2 !important;
     }
 
+    .project a:hover {
+        color: hsl(50, 100%, 45%); 
+        text-shadow: 0 0 1em gold;
+        /*transition: all 250ms;*/
+    } 
+    
     .project:focus{
         z-index:2;
         box-shadow:none;
@@ -472,12 +532,144 @@ p {
         animation-fill-mode: forwards;
         backface-visibility: visible;
         animation-play-state: running;
-        
+        /*height: 120%;*/    
     }
-    #older .project-holder, #work .project-holder, #work2 .project-holder{
+
+    .project:focus a{
+        opacity: 0;
+        z-index: 9;
+        text-align: center;
+
+        margin-top: 0em;
+        width:100%;
+        
+        padding: 0.25em 1em;
+        border-radius: 0.5em;
+        /*transition: all 0s;*/
+        /*transition: opacity 1s;*/
+    }
+    /* .a-focuser{
+        color: yellowgreen !important;
+        background-color: hsla(120, 100%, 10%, 0.95);
+        border: 1px solid yellowgreen;
+    } */
+
+    #page-description{
+        position: fixed;
+        
+        font-size: 0.65em;
+        color: yellowgreen;
+        background-color: hsla(120, 100%, 10%, 0.95);
+        border-radius: 0.5em;
+
+        padding: 0.5em 1em; 
+        z-index: 2;
+        width:28em;
+        min-height: 5em;
+        top: 4.5em; 
+        left: 50%;
+        margin-left: -12.5em; /* Half of the width */
+
+        cursor:default;   
+        opacity:0;
+        transition: opacity 750ms; 
+    }
+
+    #page-description h4{
+        font-size: 1.25em;
+        border:1px solid red;
+        margin: 0.5em auto 0.5em auto;
+    }
+
+    #page-description p{
+        background: hsla(120, 100%, 10%, 0.75);
+        color: yellowgreen;
+        margin: 0.5em auto 0.5em auto;
+    }
+
+    #page-description .pi{ 
+        line-height: 0.8em; 
+    }
+
+    #page-description i{
+        font-size: 0.7em;
+    }
+
+    .project::before{
+        display: flex;
+        justify-self: flex-end;
+        justify-content: space-around;
+        align-self: flex-start;
+        align-items: center;
+
+        position: absolute;
+        top: 3%; 
+        right:6.5%;
+      /*  right:var(--descr-after-marright);*/
+       /* margin-right: ;*/
+        font-size: 0.85em;
+
+        width: 0.95em;
+        height: 0.85em;
+        content: '+';
+        padding-bottom: 0.05em;
+    
+        color:goldenrod;
+        background-color: hsla(50, 100%, 50%, 0.05);
+        border-radius: 50%;
+        border: 1px solid goldenrod;
+        z-index:9;
+        opacity:0;
+        transition: opacity 0.25s;
+    }
+
+    .project:hover::before{
+        opacity:1;
+    }
+    .project:focus::before{
+        opacity:0;
+    }
+
+    .hoverrer::before{
+        display: flex;
+        justify-self: flex-end;
+        justify-content: space-around;
+        align-self: flex-start;
+        align-items: center;
+        /*font-size: 1em;*/
+
+        top: -36%; 
+        right: 0;
+        margin-right: var(--descr-after-marright); 
+
+        width: 1em;
+        height: 0.9em;
+        content: '+';
+        padding-bottom: 0.1em;
+    
+        color: yellowgreen;
+        background-color: hsla(120, 100%, 10%, 0.95);
+        border-radius: 50%;
+        border:1px solid yellowgreen;
+        z-index:9;
+
+        opacity:0;
+        transform: rotate(0);
+        transition: all 0 0;
+    }
+    
+    .hoverrer:focus::before{
+        opacity:1;
+        transition: transform 1s 1s, opacity 1s 1s;
+        transform: rotate(0.125turn);        
+    }
+
+    /* 
+    #older .project-holder,*/ /*#work .project-holder, #work2 .project-holder{
         filter: grayscale(100%);
         -webkit-filter: grayscale(100%);
-    }
+    } 
+    */
 
 /* ******************************** PROJECTs section - end ***************************** */
 
@@ -2853,10 +3045,44 @@ input.apple-switch {
     75% {
         transform: scale(1.7) rotate(15deg) rotateY(180deg);
         margin-left: calc(var(--position-margin)*0.65);
+        /*margin-top: -20%;*/
     }
     100%{
-        transform: scale(2.0) rotate(1deg) rotateY(360deg);
+        transform: scale(2.0) rotate(0deg) rotateY(360deg);
         margin-left: var(--position-margin);
+        /*margin-top: -40%;*/
+    }
+}
+
+@keyframes new-image-zoomer-small{
+    0% {
+        margin-left: 0;
+    }
+    75% {
+        transform: scale(1.3) rotate(15deg) rotateY(180deg);
+        margin-left: calc(var(--position-margin)*0.65);
+        /*margin-top: -20%;*/
+    }
+    100%{
+        transform: scale(1.75) rotate(0deg) rotateY(360deg);
+        margin-left: var(--position-margin);
+        /*margin-top: -40%;*/
+    }
+}
+
+@keyframes new-image-zoomer-smaller{
+    0% {
+        margin-left: 0;
+    }
+    75% {
+        transform: scale(1.3) rotate(15deg) rotateY(180deg);
+        margin-left: calc(var(--position-margin)*0.65);
+        /*margin-top: -20%;*/
+    }
+    100%{
+        transform: scale(1.75) rotate(0deg) rotateY(360deg);
+        margin-left: var(--position-margin);
+        /*margin-top: -40%;*/
     }
 }
 

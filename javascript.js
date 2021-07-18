@@ -95,26 +95,31 @@
 
     /* these elem. must start animation for project window */ 
     let projectLinkArray = new Array();
-    projectLinkArray = ["navy2-right", "navy2-left", "navy2-radio0", "navy2-radio1", "navy2-radio2", "navy1-bottom", "navy3-top"];
+    projectLinkArray = ["navy2-right", "navy2-left", "navy2-radio0", "navy2-radio1", "navy2-radio2", "navy2-radio3", "navy1-bottom", "navy3-top"];
 
     /* code for setting margin to aech column in grid - for rotate-jump css effect */    
     let focusedElement = new Array();
     let allFocusedClassElements = new Array();
     let leftMargin = new Array();
+    //let topMargin = new Array();
     //leftMargin = ['30em','10em','-10em','-30em']; // !!! units changed!! EM istead of PX new scale in @keyframes new-image-zoomer 
     leftMargin = ['200%','75%','-75%','-200%']; // test
-    leftMargin1 = ['65%','-55%','65%','-55%']; 
-    leftMargin2 = ['0%','0%','0%','0%'];
+    let leftMargin1 = ['65%','-55%','65%','-55%']; 
+    let leftMargin2 = ['6%','6%','6%','6%'];
+
+    let rightMarginDef = '0%';
+    let rightMargin = ['-139%','-77%','-2%','60%']; // test
+    let rightMargin1 = ['-70%','-9%','-70%','-9%']; // test
+    let rightMargin2 = ['-20%','-20%','-20%','-20%']; // test
+    //let topMargin = ['0%','-50%','0%','-50%'];
+   
     let x; let y; //let z; let conter=0;
     let screenResolutionX;
     let screenRatio = window.devicePixelRatio;
-    if (screenRatio != 1){
-        screenResolutionX = (screenRatio <= 1) ? window.innerWidth : (window.innerWidth) / screenRatio;
-        }
-    else{
-        screenResolutionX =  window.innerWidth;
-        }
-        console.log('pixel ratio:'+screenRatio);
+
+    if (screenRatio != 1){ screenResolutionX = (screenRatio <= 1) ? window.innerWidth : (window.innerWidth) / screenRatio; }
+    else{ screenResolutionX =  window.innerWidth; }
+    //console.log('pixel ratio:'+screenRatio);
 
     //neon blick
     let lightSwitch;
@@ -178,7 +183,7 @@
         ],
         [`The "watter ripple effect" has been started now. 
           You may also try to ripple the watter with mouse events.`],
-        [`Sensitivy mouse wheel scroll component is active now. I think you will love it. 
+        [`Sensitive mouse wheel scroll component is active now. I think you will love it. 
           It is enough to do realy just a little movement on the mouse wheel and you will scroll 
           automaticaly to the next page section.  I think this is this the pinnacle of luxury today. 
           Rolls Royce is only a rednecks
@@ -366,6 +371,30 @@
     ];
     let delay = 2000;
     let delayere;
+
+    /* page description */
+    let projectPageDescriptor = [];
+    projectPageDescriptor = [
+        `<h4>www.viahistoria.sk</h4> <p>Web portal about history</p>`,
+        `<h4>www.vialitera.sk</h4>   <p>Internet book store - user side / frontend</p>`,
+        `<h4>www.vialitera.sk</h4>   <p>Internet book store - backend</p>`,
+        `<h4>www.esex.sk</h4>        <p>Kitchen studio and factory</p>`,
+        
+        `<h4>Shopfloor servis portal</h4>         <p>Shopfloor servis portal</p>`,
+        `<h4>Shopfloor servis portal - setup</h4> <p>Shopfloor servis portal - setup</p>`,
+        `<h4>Form replacement utility</h4>        <p>Form replacement utility</p>`,
+        `<h4>Virtual documentation</h4>           <p>Virtual documentation</p>`,
+
+        `<h4>Tribute page - All for Jan</h4> <p>Tribute page - All for Jan</p>`,
+        `<h4>Simple survey form</h4>         <p>Simple survey form</p>`,
+        `<h4>Product landing page</h4>       <p>Product landing page</p>`,
+        `<h4>Technical documentation</h4>    <p>Technical documentation</p>`
+
+    ];
+    let projectPageDescriptorTech = `<p class="pi"><i> * click on the image for enlarge picture <br> &nbsp; or click on the text link below for open the link in a new tab</i></p>`;
+    let projectElementsDescript = Array.from(document.querySelectorAll('.project'));
+    let delayereForDescrib;
+    let delayForDescrib = 2000;
 
 /* ***************************** GLOBAL VARIABLES end ******************************************* */
 
@@ -1119,28 +1148,90 @@
         }
         changeOrHideNavyLinks();
     }
+
+    /* fnc dissabled now */
+    function auxilaryClick(e){
+        
+            if (e.button == 1) {
+              //alert("middle button clicked");
+              let url = window.open(this.getAttribute('href'),'_blank'); 
+              url.blur();
+            }
+            else{
+                window.open(this.getAttribute('href'),'_blank');
+            }
+    }
+    
+    function tempLinkClicker(){
+        window.open(this.getAttribute('href'),'_blank');
+    }
     
     function hoverr(){
         x = this.className;
         y = focusedElement.indexOf(x);
         console.log('resolution = '+screenResolutionX);
+
+        let xLink = this.querySelector('a');
+        let xImage = this.querySelector('img');
+        
+        this.classList.add('hoverrer');
+        /*
+          let xCloserer = document.createElement('DIV');
+              xCloserer.setAttribute('id', 'describ-closerer');
+              xCloserer.innerHTML = 'x';
+              xCloserer.style.position = 'fixed';
+        */
+              xLink.style.color = 'yellowgreen';
+              xLink.style.backgroundColor = 'hsla(120, 100%, 10%, 0.95)';
+              xLink.style.border = '1px solid yellowgreen';
+              //xLink.classList.add('a-focuser');
+              document.querySelector('.hoverrer').style.visibility = 'visible'; 
+              xImage.setAttribute('title', 'click or leave picture area for minimize large preview');
+
         if(screenResolutionX > 1480 ){
             document.querySelector(':root').style.setProperty('--position-margin', leftMargin[y]);
+            document.querySelector(':root').style.setProperty('--descr-after-marright', rightMargin[y]); 
+            xLink.style.marginLeft = leftMargin[y];
+ 
+            /*document.querySelector('.hoverrer').style.transitionDelay = '2s';*/
+            /*document.querySelector(':root').style.setProperty('--descr-after-martop', '-132%');  */
+            // setTimeout(()=>{ xLink.style.marginLeft = leftMargin[y]; }, 1000);
+            // document.querySelector(':root').style.setProperty('--position-margin-top', topMargin[y]);
         }
         else if(screenResolutionX < 1480 && screenResolutionX > 980) {
             document.querySelector(':root').style.setProperty('--position-margin', leftMargin1[y]);
+            document.querySelector(':root').style.setProperty('--descr-after-marright', rightMargin1[y]);
+            xLink.style.marginLeft = leftMargin1[y]; 
         }
         else if(screenResolutionX < 980) {
             document.querySelector(':root').style.setProperty('--position-margin', leftMargin2[y]);
+            document.querySelector(':root').style.setProperty('--descr-after-marright', rightMargin2[y]);
+            xLink.style.marginLeft = leftMargin2[y];
         }
         
         setTimeout(()=>{
-            this.querySelector('img').addEventListener('mouseout', normalizeHoveredPicture);
-            /*this.addEventListener('mouseout', normalizeHoveredPicture);*/
-        },1000);
-    }
+            // this.querySelector('img').addEventListener('mouseout', normalizeHoveredPicture);
+            // !!! condition added !!! test 24.4.2021 - could be optimalized after test
+            // Array.from(this.querySelectorAll('img')).forEach(element => {       // test 29.4.2021
+            //    element.addEventListener('mouseout', normalizeHoveredPicture);   // test 29.4.2021   
+            // });                                                                 // test 29.4.2021
+            // this.querySelector('img').addEventListener('mouseout', normalizeHoveredPicture);  // test 29.4.2021
+            // alert(this.className);
+            xLink.style.transition = 'opacity 1s';
+            xLink.style.opacity = '1';
 
-    function normalizeHoveredPicture(){
+            //let xTopRightCorner = xImage.getBoundingClientRect();
+            //console.log('+++COrnerer:'+xTopRightCorner.top+' / '+xTopRightCorner.right);
+            
+            //console.log('------THISAAC = '+this.className);
+            
+            this.addEventListener('mouseleave', normalizeHoveredPicture);    // !!! removed this.addEventListener('mouseleave', normalizeHoveredPicture, false );  
+            this.addEventListener('mousedown', normalizeHoveredPicture);  
+            xLink.addEventListener('mousedown', tempLinkClicker);
+            //xLink.addEventListener('auxclick', (e)=>{ auxilaryClick(e); } );
+        },1050);
+    }
+    function normalizeHoveredPicture0(){
         let hoveredPicture = this;
         
         setTimeout(()=>{
@@ -1148,7 +1239,7 @@
         hoveredPicture.parentNode.blur();
         hoveredPicture.blur();
             setTimeout(()=>{
-               hoveredPicture.removeEventListener('mouseout', normalizeHoveredPicture);
+               hoveredPicture.removeEventListener('mouseout', normalizeHoveredPicture0);
                //hoveredPicture.parentNode.removeEventListener('mouseout', normalizeHoveredPicture);
                hoveredPicture.style.transform = 'scale(1.25)';
                //setTimeout(()=>{
@@ -1156,6 +1247,132 @@
                //},100);
             },250);
         },100);
+    }
+    function normalizeHoveredPicture1(){
+        //setTimeout(()=>{ 
+       //let hoveredPicture = this.querySelector('img');
+        let hoveredLink = this.querySelector('a');
+    
+        //let hoveredCloserer = this.querySelector('.describ-closerer'); //document.getElementById('describ-closerer');
+        //console.log('------THISAAC PICTURE = '+this.querySelector('img').getAttribute('src'));
+        //let hoveredPicture = this.querySelector('img'); // test 29.4.2021
+        //document.querySelector('.hoverrer').style.visibility = 'hidden';
+
+        document.querySelector(':root').style.setProperty('--descr-after-marright', rightMarginDef); 
+        //hoveredPicture.setAttribute('title', 'click for larger picture');
+        /*document.querySelector(':root').style.setProperty('--descr-after-martop', '-67%'); */ 
+        //hoveredCloserer.remove();
+        //hoveredCloserer.removeAttribute('style');
+        //hoveredLink.style.display = 'none';
+        
+          //  $('.project').removeClass('hover');
+
+        //hoveredPicture.style.transform = 'scale(0.55)'; 
+        hoveredLink.removeAttribute('style');
+        //this.style.transform = 'scale(0.75)';
+        
+        //hoveredPicture.parentNode.blur();
+        //hoveredPicture.blur();
+        //hoveredLink.blur();
+        //this.blur();
+
+            setTimeout(()=>{
+                //this.style.transform = 'scale(0.9)'; 
+                //hoveredPicture.removeEventListener('mouseout', normalizeHoveredPicture, false);
+               //hoveredPicture.removeEventListener('click', normalizeHoveredPicture, false);  
+              
+               this.removeEventListener('mouseout', normalizeHoveredPicture1);
+               
+               this.removeEventListener('mousedown', normalizeHoveredPicture1);
+               this.querySelector('a').removeEventListener('mousedown', tempLinkClicker);
+               //hoveredLink.removeEventListener('auxclick', (e)=>{ auxilaryClick(e); } );
+               //hoveredPicture.parentNode.removeEventListener('mouseout', normalizeHoveredPicture);
+               //this.style.transform = 'scale(1.25)';
+               //hoveredPicture.style.transform = 'scale(0.85)';
+               //hoveredPicture.style.transform = 'scale(1.25)';
+               setTimeout(()=>{
+                
+                this.classList.remove('hoverrer');
+                hoveredLink.removeAttribute('style');
+                //hoveredPicture.removeAttribute('style'); 
+                this.removeAttribute('style'); 
+                //hoveredPicture.style.filter = 'brightness(100%) drop-shadow(0px 0px 15px hsla(50, 100%, 75%, 0.5))';
+                
+               },100);
+            },250);
+       //},100);
+    }
+    function normalizeHoveredPicture(){
+        //alert('tago: '+this.tagName+' --- Ido: '+this.getAttribute('id'));
+        
+        let pictures = this.querySelectorAll('img');
+        let hoveredPictureClass;
+        pictures.forEach(element =>{
+            let styles = getComputedStyle(element);
+            if(styles.getPropertyValue('display') == 'block'){ hoveredPictureClass = element.className; }
+        });
+        let hoveredPicture = this.querySelector('.'+hoveredPictureClass);
+        let hoveredLink = this.querySelector('a');
+        let actualID = this.getAttribute('id');
+    
+        //let hoveredCloserer = this.querySelector('.describ-closerer'); //document.getElementById('describ-closerer');
+        //console.log('------THISAAC PICTURE = '+this.querySelector('img').getAttribute('src'));
+        //let hoveredPicture = this.querySelector('img'); // test 29.4.2021
+        //document.querySelector('.hoverrer').style.visibility = 'hidden';
+       
+        this.classList.remove('hoverrer');
+        this.removeAttribute('style');
+        hoveredLink.removeAttribute('style');
+                
+        setTimeout(()=>{ 
+        /*hoveredLink.style.visibility = 'hidden';*/
+        //document.querySelector(':root').style.setProperty('--descr-after-marright', rightMarginDef); 
+        //hoveredPicture.setAttribute('title', 'click for larger picture');
+        /*document.querySelector(':root').style.setProperty('--descr-after-martop', '-67%'); */ 
+        //hoveredCloserer.remove();
+        //hoveredCloserer.removeAttribute('style');
+        //hoveredLink.style.display = 'none';
+        
+          //  $('.project').removeClass('hover');
+           
+        hoveredPicture.style.transform = 'scale(0.9)'; 
+        hoveredPicture.style.border = '1px solid red';        
+       // this.style.transform = 'scale(0.9) !important';
+       // this.style.transition = 'transform 250ms';
+        //this.style.transform = 'scale(1.65)';
+        
+        hoveredPicture.parentNode.blur();
+        hoveredLink.blur();
+        this.blur();   
+        hoveredPicture.blur();
+
+            setTimeout(()=>{
+                //this.style.transform = 'scale(0.9)'; 
+                //hoveredPicture.removeEventListener('mouseout', normalizeHoveredPicture, false);
+               //hoveredPicture.removeEventListener('click', normalizeHoveredPicture, false);  
+               
+               //hoveredLink.removeEventListener('auxclick', (e)=>{ auxilaryClick(e); } );
+               //hoveredPicture.parentNode.removeEventListener('mouseout', normalizeHoveredPicture);
+              hoveredPicture.style.transform = 'scale(1.25)';
+               //this.style.transform = 'scale(1.05)';
+               //hoveredPicture.style.transform = 'scale(0.85)';
+               //hoveredPicture.style.transform = 'scale(1.25)';
+               //setTimeout(()=>{
+                //hoveredLink.removeAttribute('style');
+                this.removeEventListener('mouseout', normalizeHoveredPicture);
+                //hoveredPicture.removeEventListener('mouseout', normalizeHoveredPicture, false);
+                this.removeEventListener('mousedown', normalizeHoveredPicture);
+               // hoveredPicture.removeEventListener('mousedown', normalizeHoveredPicture, false);
+
+                this.querySelector('a').removeEventListener('mousedown', tempLinkClicker);
+                
+                hoveredPicture.removeAttribute('style'); 
+                //this.removeAttribute('style'); 
+                hoveredPicture.style.filter = 'brightness(100%) drop-shadow(0px 0px 15px hsla(50, 100%, 75%, 0.5))';
+                
+             // },100);
+            },250);
+       },100);
     }
 
     /* start CSS animations - TARGET pseudoclass has its limits... */
@@ -2303,12 +2520,23 @@
             displayHelpSequencedCreate(helpToDisplay[0], helpToDisplay[1], false);
             event.target.addEventListener('mouseout', ()=>{
                     helpDestroyer(helpToDisplay[0],helpToDisplay[1]);
-                    //event.target.style.border = '1px solid blue';
                 }
             );
         }
     }
 
+    /* page description function */
+    function pageDescriptor(id){
+        document.querySelector('#page-description').innerHTML = projectPageDescriptor[id] + projectPageDescriptorTech;
+        document.querySelector('#page-description').style.opacity = '1';
+        this.addEventListener('mouseout', pageDescriptorClose);
+    }
+    function pageDescriptorClose(){
+        setTimeout(()=>{
+            document.querySelector('#page-description').style.opacity = '0';
+        },1000);
+    }
+    
 /* ****************************** FUNCTIONS END *************************************** */
 
 /* ************************************************************************************ */
@@ -2500,6 +2728,17 @@ function startJS(){
     },3000);
     safetyWaitingForSwitchCreated();
     //setTimeout(mouseTouch(), 5000);
+
+    /* set events for project description */
+//    projectElementsDescript.forEach((element, id) => {
+//        element.addEventListener('mouseover', ()=>{
+            /*element.style.border = '1px solid black';*/
+//            delayereForDescrib = setTimeout( ()=>{ pageDescriptor(id); }, delayForDescrib);
+//        });
+//        element.addEventListener('mouseout', ()=>{ clearTimeout(delayereForDescrib); });
+        //element.addEventListener('mouseout', ()=>{ pageDescriptorClose(); });
+        //element.addEventListener('click', pageDescriptorClicker);
+//    });
 
 
 } // this is end of ONLOAD function

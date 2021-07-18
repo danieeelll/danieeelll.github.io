@@ -26,13 +26,18 @@
         /* margin-top:-5vh; */
         display: grid;
         grid-template-columns: 12em 12em 12em 12em;
-        grid-template-rows: 15em;
+        grid-template-rows: 15.25em;
         grid-template-areas: 
         "content0 content1 content2 content3";  
         height:10em;
     }   
-    .project { width: 13em; height: 9em; }
-    .project img { width: 14em; height: 10em; }
+    .project { width: 12em; height: 10em; }
+    .project img { width: 15.75em; /*height: 10em;*/ } /* height off - now is from main style: max-height: 100%;*/
+   /* .project-img-holder{ width: 14.5em; height: 9.25em; }*/
+    /* 20.apr.2021 */
+    .img-project-980 { display:none; }
+    .img-project-1920{ display:none; }
+    .img-project-2560{ display:block; width: 15.75em;}
     #projects .title-text{ margin:5em auto auto 0.1em; }
     #projects h2{ margin-top:4.75em; }
 
@@ -66,6 +71,7 @@
     }    
     #para-img6{ bottom: -6.5em; left: 5em;}
     #para-img0{ top: -5.5em; left: 10.5em; } 
+
 }
 
 @media (min-width: 1921px) and (max-width: 2560px){
@@ -87,13 +93,16 @@
         /* margin-top:-5vh; */
         display: grid;
         grid-template-columns: 12em 12em 12em 12em;
-        grid-template-rows: 15em;
+        grid-template-rows: 15.25em;
         grid-template-areas: 
         "content0 content1 content2 content3";  
         height:10em;
     }   
-    .project { width: 13em; height: 9em; }
-    .project img { width: 14em; height: 10em; }
+    .project { width: 12em; height: 10em; }
+    .project img { width: 15.75em; /*height: 10em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .img-project-980 { display:none; }
+    .img-project-1920{ display:none; }
+    .img-project-2560{ display:block; width: 15.75em; }
     #projects .title-text{ margin:5em auto auto 0.1em; }
     #projects h2{ margin-top:4.75em; }
     #contacts { height: 94.3vh; } 
@@ -126,7 +135,7 @@
         height:auto; 
         max-height: 8em;
         max-height: 8em;
-    }    
+    }   
 }
 
 @media (max-width: 1480px){
@@ -156,7 +165,10 @@
         height:50vh
     }   
     .project { width: 16em; height: 10.5em; }
-    .project img { width: 18em; height: 11em; }
+    .project img { width: 16.5em; /*height: 11em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .project::before{ font-size: 0.9em; top: 4%; right:16%; }
+    .hoverrer::before{font-size: 1.2em; top: -35.5%;}
+
     #contacts { min-height: 94.6vh; }
     #contacts li a { width: 5em;}
     #navbar, #navbar ul {  width:800px; }
@@ -209,7 +221,13 @@
     }   
 
     .project { width: 22em; height:15em; }
-    .project img { width: 24em; height:16em; }
+    .project img { width: 24em; /*height:16em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .img-project-980 { display:block; } .img-project-1920{ display:none; } .img-project-2560{ display:none; }
+    .project:focus img { animation-name: new-image-zoomer-small; }
+    .project::before{ font-size: 0.9em; top: 5%; right:16%; }
+    .hoverrer::before{font-size: 1.2em; top: -22%; right:10%; }
+    .project:focus a{ width:90%;}
+
     #contacts { min-height: 97.6vh; scroll-margin-top: 1em; }
     #contacts li a { width: 7em;}
 
@@ -269,7 +287,12 @@
         height:85em;
     }   
     .project { width: 24em; height:17em; }
-    .project img { width: 27em; height:18em; }
+    .project img { width: 27em; /* height:18em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .img-project-980 { display:block; } .img-project-1920{ display:none; } .img-project-2560{ display:none; }
+    .project:focus img { animation-name: new-image-zoomer-small; }
+    .project::before{ font-size: 0.9em; top: 5%; right:16%; }
+    .hoverrer::before{font-size: 1.2em; top: -22%; right:10%; }
+    .project:focus a{ width:90%;}
 
     #contacts { min-height: 30em; margin-bottom: 55vh; }
     #contacts-section-holder{  min-height: 24.4em; }
@@ -337,7 +360,13 @@
         height:80em;
     }   
     .project { width: 22em; height:15em; }
-    .project img { width: 24em; height:16em; }
+    .project img { width: 24em; /*height:16em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .project:focus img { animation-name: new-image-zoomer-smaller; }
+    .img-project-980 { display:block; } .img-project-1920{ display:none; } .img-project-2560{ display:none; }
+    .project::before{ font-size: 0.9em; top: 5%; right:16%; }
+    .hoverrer::before{font-size: 1.2em; top: -25%; right:11%; }
+    .project:focus a{ width:95%;}
+
     #welcome-section .slide-holder-bottom1{ top:95vh; }
     #welcome-section .slide-radio-bottom1{ top:87vh; } 
     #contacts { min-height: 97.6vh; scroll-margin-top: 1em; }
@@ -402,7 +431,13 @@
         height:85em;
     }   
     .project { width: 24em; height:17em; }
-    .project img { width: 27em; height:18em; }
+    .project img { width: 27em; /*height:18em;*/ } /* height off - now is from main style: max-height: 100%;*/
+    .project:focus img { animation-name: new-image-zoomer-smaller; }
+    .img-project-980 { display:block; } .img-project-1920{ display:none; } .img-project-2560{ display:none; }
+    .project::before{ font-size: 0.9em; top: 5%; right:16%; }
+    .hoverrer::before{font-size: 1.2em; top: -25%; right:11%; }
+    .project:focus a{ width:95%;}
+
     #contacts { min-height: 30em; margin-bottom: 55vh; }
     #contacts-section-holder{  min-height: 24.4em; }
     #real-refl-text-holder{ margin-top: 2em;} 
