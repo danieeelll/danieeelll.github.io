@@ -531,6 +531,8 @@
     .slide-radio{ display: flex; }
 }
 
+/* safari adjusting - `cos there`s horrible list style wheel in menu, etc.
+/* safari "any version" - does not work */
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
 { @media 
     {
@@ -540,7 +542,7 @@
      */
         #navbar ul li:before {
             
-            content: " prd "; 
+            content: " ☸ "; 
             color:red;
             background-color: green;
             
@@ -552,7 +554,7 @@
     @media {
         #navbar ul li:before {
             
-            content: " prd "; 
+            content: " ☸ "; 
             color:red;
             background-color: green;
             
