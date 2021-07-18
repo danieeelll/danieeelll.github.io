@@ -542,7 +542,7 @@
      */
         #navbar ul li:before {
             
-            content: " ☸ "; 
+            content: " ⎈ "; 
             color:blue;
             background-color: gold;
             
@@ -557,7 +557,7 @@
 
     #navbar ul li:before {
             
-        content: " ☸ "; 
+        content: " ⎈ "; 
         color:blue;
         background-color: gold;
         
@@ -570,7 +570,7 @@
 
     #navbar ul li:before {
             
-        content: " ☸ "; 
+        content: " ⎈ "; 
         color:blue;
         background-color: gold;
         
@@ -581,9 +581,11 @@
     @media {
         #navbar ul li:before {
             
-            content: " ☸ "; 
+            content: " ⎈ "; 
             color:blue;
             background-color: gold;
             
         }
     }}
+
+    /* ⎈ 🧭 */
