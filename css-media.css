@@ -531,3 +531,19 @@
     .slide-radio{ display: flex; }
 }
 
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
+{ @media 
+    {
+    /*
+      Define here the CSS styles applied only to Safari browsers
+      (any version and any device)
+     */
+        #navbar ul li:before {
+            
+            content: " prd "; 
+            color:red;
+            background-color: green;
+            
+        }
+    }
+}
