@@ -541,7 +541,7 @@
       (any version and any device)
      */
         #navbar ul li:before {
-            transform:scale(1.5);   
+            transform:scale(1.75);   
             content: " ⎈ "; 
             /*color:blue;*/
             
@@ -555,7 +555,7 @@
 { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
 
     #navbar ul li:before {
-        transform:scale(1.5);       
+        transform:scale(1.75);       
         content: " ⎈ "; 
         /*color:blue;*/
         
@@ -567,7 +567,7 @@
 { @supports (-webkit-appearance:none) and (not (stroke-color:transparent)) {
 
     #navbar ul li:before {
-        transform:scale(1.5);    
+        transform:scale(1.75);    
         content: " ⎈ "; 
         /*color:blue;*/
         
@@ -579,7 +579,7 @@
         #navbar ul li:before {
             
             content: " ⎈ "; 
-            transform:scale(1.5);
+            transform:scale(1.75);
             /*color:blue;*/
             
         }
