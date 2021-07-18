@@ -477,16 +477,16 @@ p {
 /* test end 20.apr.2021 */ 
  
     .img-project-980{
-        border: 1px solid red;
+        /*border: 1px solid red;*/
         display:none;
     }
     .img-project-1920{
-        border: 1px solid green;
+        /*border: 1px solid green;*/
         display:block;
     }
     
     .img-project-2560{
-        border: 1px solid blue;
+        /*border: 1px solid blue;*/
         display:none;
     }
 
