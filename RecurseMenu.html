@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: black; color: orange; margin: 15px;}
+        h1{ margin-left: 15px; width:90%; text-align: center; color: orange; border: 2px solid orange;}
+        li div{ width: 100px; height:20px; margin: 5px; border: 2px solid orange; text-align: center; transition: all 1s;  }
+        span{ margin: 5px; height:20px; border: 2px solid orange; text-align: center; font-weight: bold;}
+        .p-actual, li div:hover{ background-color: gold; color: black; 
+                        transition: all 1s; cursor: pointer; }
+        .p-top, .top{  background-color: green; animation: green-blick 0.5s 3;  }
+        .p-bottom, .bottom{ background-color: red; animation: red-blick 0.5s 3; }
+        ul{ border: 1px dotted gray; margin-left: 15px; max-width: fit-content; }
+
+        .topper{ width: 90%; color:black; background-color: gray; margin-left: 15px; padding:3px; border: 2px solid orange;}
+        #actual-pos{ width:35px; font-weight: bold;}
+        #totop-pos, #tobottom-pos{ width:230px; font-weight: bold; }
+
+        @keyframes green-blick {
+            0% {
+                background-color: orange;
+            }
+            25% {
+                background-color: green;
+            }
+            75% {
+                background-color: green;
+            }
+            100% {
+                background-color: orange;
+            }
+        }
+            @keyframes red-blick {
+            0% {
+                background-color: orange;
+            }
+            25% {
+                background-color: red;
+            }
+            75% {
+                background-color: red;
+            }
+            100% {
+                background-color: orange;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Menu cez rekurzivne volania funkcie</h1>
+    <div class="topper">
+       <span class="p-actual"> actual position in menu array matrix: </span><input id="actual-pos" name="actual-pos" value=""><br />
+       <span class="p-top"> to the top direction: </span><input id="totop-pos" name="totop-pos" value="">
+       <span class="p-bottom"> to the bottom direction: </span><input id="tobottom-pos" name="tobottom-pos" value="">
+    </div>
+    
+    <nav>
+        <ul>
+            <li><div id="1"> </div>
+                <ul>
+                    <li><div id="11"> </div></li>
+                    <li><div id="12"> </div>
+                        <ul>
+                            <li><div id="121"> </div></li>
+                            <li><div id="122"> </div></li>
+                            <li><div id="123"> </div>
+                                <ul>
+                                    <li><div id="1231"> </div></li>
+                                    <li><div id="1232"> </div></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><div id="13"> </div></li>
+                </ul>
+            </li>
+            <li><div id="2"> </div></li>
+            <li><div id="3"> </div>
+                <ul>
+                    <li><div id="31"> </div></li>
+                </ul>
+            </li>
+            <li><div id="4">   </div>
+                <ul>
+                    <li><div id="41"> </div></li>
+                    <li><div id="42"> </div></li>
+                    <li><div id="43"> </div>
+                        <ul>
+                            <li><div id="431"> </div>
+                                <ul>
+                                    <li><div id="4311"> </div></li>
+                                    <li><div id="4321"> </div></li>
+                                </ul>
+                            </li>
+                            <li><div id="432"> </div></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+
+        function RecursionUp(iid){
+            //console.log(`to TOP -> id: ${iid} array:${Array.from(iid)}`);
+            if(!iid){ 
+                return
+            }
+            else{
+                document.getElementById(iid).classList.add('top');
+                document.getElementById('totop-pos').value += ' >> '+iid;
+                return RecursionUp(iid.slice(0, -1));
+            }
+        }
+
+        function RecursionDown(iid){
+            console.log(`to DOWN-> id: ${iid} array:${Array.from(iid)}`);
+            if(!document.getElementById(iid)){ 
+                return;
+            }
+            else{
+
+                if(document.getElementById(iid+'1')){ 
+                    console.log(`to NEW TO DOWN-> id: ${iid+1} array:${Array.from(iid+1)}`);
+                    document.getElementById(iid+'1').classList.add('bottom');
+                    document.getElementById('tobottom-pos').value += ' << '+iid+1;
+                    RecursionDown(parseInt(iid+'1')+1);
+                }
+                    document.getElementById(iid).classList.add('bottom');
+                    document.getElementById('tobottom-pos').value += ' < '+iid;
+                    return RecursionDown(parseInt(iid)+1);
+            }
+
+        }
+
+        // diviakovy event Handler
+        let allDivs = document.querySelectorAll('nav div');
+
+        
+        allDivs.forEach((diviak)=>{
+
+            diviak.innerHTML = 'elem.'+diviak.id;
+            diviak.setAttribute('title', 'just click');
+
+            diviak.addEventListener('mouseover', (event)=>{
+                console.log(event.target.id);
+                document.getElementById('actual-pos').value = event.target.id;
+            });
+            diviak.addEventListener('click', (event)=>{ 
+                RecursionUp(event.target.id); 
+                RecursionDown(event.target.id+1);
+            });
+            diviak.addEventListener('mouseout', ()=>{
+                allDivs.forEach((diviak1)=>{
+                    diviak1.removeAttribute('class');
+                });
+                document.getElementById('tobottom-pos').value = '';
+                document.getElementById('totop-pos').value = '';
+            }); 
+
+        }); 
+
+
+
+    </script>
+</body>
+</html>
